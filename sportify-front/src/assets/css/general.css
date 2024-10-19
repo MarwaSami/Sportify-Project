@@ -1,0 +1,97 @@
+/*===== GOOGLE FONTS =====*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700&display=swap');
+
+/* */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Noto Sans', sans-serif;
+}
+/* root Colors and font*/
+:root {
+       /* Font-weight */
+    --font-weight-text: 200;
+    --font-weight-text2: 300;
+    --font-weight-text3: 400;
+    --font-weight-head3: 500;
+    --font-weight-head2: 600;
+    --font-weight-head1: 700;
+    /* 1rem=16px*/
+    /* Colors*/
+    --Primary-Dark-Color :#00401E;
+    --Primary-light-color: #10772A ;
+    --Primary-lighter-color: #1DB233;
+    --Secondary-dark-color: #FFCC12; 
+    --Secondary-yellow-color: #ECF39E;
+    --background-color:white;
+    /* font-family*/
+    font-family: 'Noto Sans', sans-serif;
+    /* Font-size */
+    --font-size-head:2rem;
+    --font-size-subhead:1.7rem;
+    --font-size-title:1.5rem;
+    --font-size-text:1.3rem;
+    --font-size-subtext:1.1rem;
+}
+/* list ,link and image defualt style */
+ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  /* custom container */
+.custom_container{
+    width: 80%;
+    margin: 2vh auto;
+}
+button{
+  cursor: pointer;
+}
+
+/*////////////// buttons  //////// */
+
+.Primary-button{
+
+  width: 170px;
+  height: 60px;
+  border: 2px solid var(--Primary-lighter-color);
+  background-color: var(--background-color);
+  color: var(--Primary-lighter-color);
+  font-size: var(--font-size-subtext);
+  font-weight: var(--font-weight-head3);
+  letter-spacing: 1px;
+  transition: all .5s;
+}
+
+.Primary-button:hover{
+  background-color: var(--Primary-lighter-color);
+  color: var(--Secondary-yellow-color);
+}
+
+.Second-button{
+
+  width: 170px;
+  height: 60px;
+  border: none;
+  outline: none;
+  background-color: var(--Primary-lighter-color);
+  color: var(--Secondary-yellow-color);
+  font-size: var(--font-size-subtext);
+  font-weight: var(--font-weight-head3);
+  letter-spacing: 1px;
+  transition: all .5s;
+}
+
+.Second-button:hover{
+  background-color: var(--Secondary-yellow-color);
+  color: var(--Primary-lighter-color);
+}
+
+

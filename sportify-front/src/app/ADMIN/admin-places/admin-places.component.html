@@ -1,0 +1,60 @@
+<div class="bottom-data">
+  <div class="orders">
+    <div class="header"></div>
+    <h1>PLACES</h1>
+    <div class="d-flex justify-content-between align-items-center">
+    </div>
+
+    <div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+        <label class="control-label" for="noOfRows">No. of Rows</label>
+      </div>
+      <div class="col-auto">
+        <select name="noOfRows" (change)="onTableSizeChange($event)" class="form-select form-select-sm">
+          <option *ngFor="let size of tableSize" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+    </div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Facilities</th>
+            <th>description</th>
+          </tr>
+        </thead>
+
+        <tbody >
+          <tr *ngFor="let item of places">
+            <td>{{item.id}}</td>
+            <td>
+              <img src="https://localhost:59528/Images/{{item.attachments[0]}}">
+            </td>
+            <td>
+              <p>{{item.name}}</p>
+            </td>
+            <td>
+              <p *ngFor="let facility of item.facilities">{{facility}}</p>
+            </td>
+            <td style="width: 25%;">
+              {{(item.description.length>100)? (item.description|slice:0:100) + ' .....':(item.description)}}
+              </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

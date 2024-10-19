@@ -1,0 +1,195 @@
+<div class="container-customform">
+  <form action="" id="" [formGroup]="BasicInfo" (ngSubmit)="send()">
+    <div class="step-wizard">
+      <ul class="step-wizard-list">
+        <div class="step-line"></div>
+        <li class="step-wizard-item progress-active">
+          <span class="progress-count rounded-circle">
+            1
+          </span>
+          <span class="progress-label">
+            Place's Info
+          </span>
+        </li>
+        <li class="step-wizard-item">
+          <span class="progress-count rounded-circle">
+            2
+          </span>
+          <span class="progress-label">
+            Place's Facilities <br> and it's Category
+          </span>
+        </li>
+        <li class="step-wizard-item">
+          <span class="progress-count rounded-circle">
+            3
+          </span>
+          <span class="progress-label">
+            Place's Schedule
+          </span>
+        </li>
+        <li class="step-wizard-item">
+          <span class="progress-count rounded-circle">
+            4
+          </span>
+          <span class="progress-label">
+            Place's Location
+          </span>
+        </li>
+      </ul>
+      <div class="row g-2 align-items-center form-input">
+        <div class="col-lg-3  col-md-3 col-sm-8 col-xs-12" style="padding-left: 2%">
+          <label for="name" class="col-form-label">Name </label>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 ">
+          <input type="text" id="name" class="form-control" placeholder="Enter name" formControlName="Name" [ngClass]="{
+            'is-valid': BasicInfo.controls['Name'].valid && BasicInfo.controls['Name'].touched,
+            'is-invalid': BasicInfo.controls['Name'].invalid &&BasicInfo.controls['Name'].touched,
+        }">
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">
+            <span *ngIf="BasicInfo.controls['Name'].hasError('required')">
+              Please Enter a valid name.</span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <div class="row g-2 align-items-center form-input">
+        <div class="col-lg-3  col-md-3 col-sm-8 col-xs-12" style="padding-left: 2%;">
+          <label for="Description" class="col-form-label">Description </label>
+        </div>
+        <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12">
+          <textarea rows="8" id="Description" placeholder="Enter your description about your place" class="form-control" formControlName="Description" [ngClass]="{
+            'is-valid': BasicInfo.controls['Description'].valid && BasicInfo.controls['Description'].touched,
+            'is-invalid': BasicInfo.controls['Description'].invalid &&BasicInfo.controls['Description'].touched,
+        }"> </textarea>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">
+            <span *ngIf="BasicInfo.controls['Description'].hasError('required')">
+              Please Enter a Description.</span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <div class="row g-3 align-items-center form-input">
+        <div class="col-lg-3 col-md-3 col-sm-8 col-xs-12" style="padding-left: 2%">
+          <label for="capacity" class="col-form-label"> Capacity </label>
+        </div>
+        <div class="col-lg-6  col-md-6 col-sm-8 col-xs-12">
+          <input type="number" id="capacity" placeholder="Enter Your capacity" class="form-control" formControlName="Capacity" [ngClass]="{
+            'is-valid': BasicInfo.controls['Capacity'].valid && BasicInfo.controls['Capacity'].touched,
+            'is-invalid': BasicInfo.controls['Capacity'].invalid &&BasicInfo.controls['Capacity'].touched,
+        }" min="1">
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">
+            <span *ngIf="BasicInfo.controls['Capacity'].hasError('required')">
+              Please Enter a valid Capacity.</span>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row g-3 align-items-center form-input">
+        <div class="col-lg-3 col-md-3 col-sm-8 col-xs-12">
+          <label for="price" class="col-form-label">Price per hour </label>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+          <input type="number" id="price" class="form-control" placeholder="Enter price" formControlName="PricePerhour" [ngClass]="{
+                      'is-valid': BasicInfo.controls['PricePerhour'].valid && BasicInfo.controls['PricePerhour'].touched,
+                      'is-invalid': BasicInfo.controls['PricePerhour'].invalid &&BasicInfo.controls['PricePerhour'].touched,
+                  }" min="1">
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">
+            <span *ngIf="BasicInfo.controls['PricePerhour'].hasError('required')">
+              Please Enter a valid price.</span>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="row g-2 align-items-left form-input">
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+          <label class="col-form-label" class="elemlabel"> Type : </label>
+          <br>
+          <br>
+          <div class="row g-5 align-items-center form-input">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5" style="padding-left: 4%; ">
+              <label for="private">Private </label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-5">
+              <input data-name="Type" id="private" checked type="radio" value="1" formControlName="TypeID"
+                class="form-check-input IType_id">
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row g-5 align-items-center form-input">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5" style="padding-left: 4%;">
+              <label for="Public">Public</label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-5">
+              <input data-name="Type" id="Public" type="radio" value="2" formControlName="TypeID"
+                class="form-check-input IType_id">
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row g-5 align-items-center form-input">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5" style="padding-left: 4%;">
+              <label for="Both">Both</label>
+            </div>
+            <div class="col-lg-6 col-md-pull-6 col-sm-5 col-xs-5">
+              <input data-name="Type" id="Both" type="radio" value="3" formControlName="TypeID"
+                class="form-check-input IType_id">
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+          <label class="col-form-label" class="elemlabel"> For whom : </label>
+          <br>
+          <br>
+          <div class="row g-5 align-items-center form-input">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5" style="padding-left: 10%;">
+              <label for="male">Men</label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-5">
+              <input id="male" type="radio" value="1" formControlName="SurfaceID" class="form-check-input ISurface_id">
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row g-5 align-items-center form-input">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5" style="padding-left: 10%;">
+              <label for="female">Ladies</label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-5">
+              <input id="female" type="radio" value="2" formControlName="SurfaceID" class="form-check-input ISurface_id">
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row g-5 align-items-center form-input">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5" style="padding-left: 10%;">
+              <label for="Both">Both</label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-5">
+              <input id="Both" type="radio" value="3" formControlName="SurfaceID" class="form-check-input ISurface_id">
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      <br>
+
+      <div class="">
+        <button class="Primary-button" style="margin-left: 40%;padding: 1vh 5%;" type="submit"
+          [disabled]="BasicInfo.invalid">
+          Next
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

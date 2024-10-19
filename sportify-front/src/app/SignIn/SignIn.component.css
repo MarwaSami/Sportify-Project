@@ -1,0 +1,75 @@
+.form {
+    background-image: url('../../assets/images/LogInSignUp/Back-Ground-Img.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+#logologin{
+    margin-top: -200px;
+    margin-bottom: 20px;
+}
+#logoSignup{
+    margin-top: -50px;
+    margin-bottom: 10px;
+}
+button{
+    border-radius: 5px;
+    border-style: none;
+}
+.fa{
+    line-height: 1.5;
+}
+
+.Primary-btn {
+    height: 40px;
+    border: 2px solid var(--Primary-lighter-color);
+    background-color: var(--background-color);
+    color: var(--Primary-lighter-color);
+    font-size: var(--font-size-subtext);
+    font-weight: var(--font-weight-head3);
+    letter-spacing: 1px;
+    transition: all .5s;
+  }
+  
+  .Primary-btn:hover {
+    background-color: var(--Primary-lighter-color);
+    color: var(--Secondary-yellow-color);
+  }
+
+  @media (max-width: 576px) {
+    .form {
+      background-size: contain;
+      background: 100%;
+      background-color: rgba(238, 240, 238, 0);
+    }
+    #logologin{
+        width:300px;
+        margin-top: -100px;
+    }
+    .Primary-btn{
+        width: 285px
+    }
+  }
+  
+
+  @media (max-width: 840px) {
+    .form {
+    background-image: url('../../assets/images/LogInSignUp/Back-Ground-Img.svg');
+
+      background-position: center;
+      
+     
+      background-color: rgba(238, 240, 238, 0);
+    }
+    #logologin{
+        width:300px;
+        margin-top: -90px;
+
+    }
+    .Primary-btn{
+        width: 285px
+    }
+  }

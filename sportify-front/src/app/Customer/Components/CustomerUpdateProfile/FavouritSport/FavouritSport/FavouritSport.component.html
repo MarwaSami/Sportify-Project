@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="col-12">
+        <h2>Favourite Sport</h2>
+        <p>Selecting your favourite sport(s) controls what you see in your My Venues tab.
+            You'll be shown venues nearest to your home and work locations for only the sport(s) you
+            like to play!
+        </p>
+        <div class="row mt-5">
+            <div *ngFor="let i of favSports" class="col-lg-2 col-md-4 col-sm-6">
+                <div *ngIf="i.status === true" class="card text-center"
+                    style="background: var(--Primary-lighter-color);">
+                    <a class="link-secondary" (click)="ChangeStatus(i)">
+                        <div class="card-body">
+                            <img [src]="'https://localhost:59528'+i.pic" alt="">
+                            <h5 style="color: var(--Secondary-yellow-color);" class="card-title">{{i.name}}</h5>
+                        </div>
+                    </a>
+                </div>
+                <div *ngIf="i.status == false" class="card bg-light text-center">
+                    <a (click)="ChangeStatus(i)" class="link-secondary">
+                        <div class="card-body">
+                            <img [src]="'https://localhost:59528'+i.pic" alt="">
+                            <h5 class="card-title">{{i.name}}</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

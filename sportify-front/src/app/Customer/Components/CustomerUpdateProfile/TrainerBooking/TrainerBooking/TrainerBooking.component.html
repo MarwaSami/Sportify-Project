@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <h2 class="fw-bold">My Trainer Bookings</h2>
+  <hr />
+
+  <ul class="nav nav-tabs p-3">
+
+    <li class="active me-5"><a style="color: var(--Primary-light-color);" routerLink="UpcomingTBooking"
+        data-toggle="tab"><i class="fa fa-bag-shopping mr-3"></i>Upcoming Booking</a></li>
+
+    <li class="me-5"><a style="color: var(--Primary-light-color);" routerLink="CanceledTBooking" data-toggle="tab"><i
+          class="fa fa-xmark mr-3"></i>Canceled
+        Booking</a></li>
+
+    <li class="me-5"><a style="color: var(--Primary-light-color);" routerLink="CompletedTBooking" data-toggle="tab"><i
+          class="fa fa-check-to-slot mr-3"></i>Completed Booking</a></li>
+
+  </ul>
+
+  <div class="tab-content">
+<router-outlet></router-outlet>
+  </div>
+</div>

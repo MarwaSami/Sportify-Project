@@ -1,0 +1,55 @@
+<div class="bottom-data">
+  <div class="orders">
+    <div class="header"></div>
+    <h1>USERS</h1>
+    <div class="d-flex justify-content-between align-items-center">
+    </div>
+
+    <div>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+          <label class="control-label" for="noOfRows">No. of Rows</label>
+        </div>
+        <div class="col-auto">
+          <select name="noOfRows" (change)="onTableSizeChange($event)" class="form-select form-select-sm">
+            <option *ngFor="let size of tableSize" [ngValue]="size">
+              {{ size }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>PhoneNumber</th>
+            <th>NID</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of users">
+            <td>{{item.id}}</td>
+            <td>
+              <p>{{item.name}}</p>
+            </td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.nationalID}}</td>
+            <td><img src="https://localhost:59528/Images/{{item.profileImg}}"></td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+      </div>
+
+  </div>
+</div>

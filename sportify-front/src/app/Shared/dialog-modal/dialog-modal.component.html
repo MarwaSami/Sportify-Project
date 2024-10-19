@@ -1,0 +1,25 @@
+<!-- <div class="Review"> -->
+  <h1 mat-dialog-title>Give Us Your Feedback</h1>
+  <div class="title">
+
+    <p><span>For : </span> {{data.title}}</p>
+  </div>
+<div mat-dialog-content>
+  <br>
+  <mat-form-field>
+    <mat-label>Your Message </mat-label>
+    <textarea matInput  [(ngModel)]="data.msg"></textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Your Rate </mat-label>
+    <input matInput  [(ngModel)]="data.rate" type="number" min="0" max="5">
+  </mat-form-field>
+  <br>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Send</button>
+</div>
+
+<!-- </div> -->

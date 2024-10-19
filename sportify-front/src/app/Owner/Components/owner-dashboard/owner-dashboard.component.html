@@ -1,0 +1,63 @@
+<!-- Sidebar -->
+<div class="sidebar">
+  <a routerLink="/" class="logo"> 
+    <i class='bx bxs-basketball'></i>
+    <div class="logo-name"><span>Sportify</span></div>
+  </a>
+  <ul class="side-menu">
+    <li><a routerLink="dashboard"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+    <li *ngIf="currentUser?.role== 2"><a routerLink="myplaces"><i class='bx bx-store-alt'></i>Places</a></li>
+    <li *ngIf="currentUser?.role== 2"><a class="btn" routerLink="reviews"><i class='bx bx-analyse'></i>Reviews</a></li>
+    <li *ngIf="currentUser?.role== 2"><a class="btn" routerLink="See-Reservations"><i class='bx bx-message-square-dots'></i>Bookings</a></li>
+    <li *ngIf="currentUser?.role== 2"><a routerLink="SettingOwner"><i class='bx bx-cog'></i>Settings</a></li>
+    <li *ngIf="currentUser?.role== 3"><a routerLink="profile"><i class='bx bx-user-circle'></i>Profile</a></li>
+    <li *ngIf="currentUser?.role== 3"><a routerLink="Reservations"><i class='bx bx-grid'></i>Reservation</a></li>
+    <li *ngIf="currentUser?.role== 3"><a routerLink="schedule"><i class='bx bxs-calendar'></i>Schedule </a></li>
+    <li *ngIf="currentUser?.role== 3"><a class="btn" routerLink="Reviews"><i class='bx bx-analyse'></i>Reviews</a></li>
+  </ul>
+  <ul class="side-menu">
+    <li>
+      <a routerLink="" (click)="LogOut()" class="logout">
+        <i class='bx bx-log-out-circle'></i>
+        Logout
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- End of Sidebar -->
+
+
+<!-- Main Content -->
+<div class="content">
+  <!-- Navbar -->
+  <nav>
+    <i class='bx bx-menu'></i>
+    <form action="#">
+      <div class="form-input">
+        <input type="search" placeholder="Search...">
+        <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+      </div>
+    </form>
+    <!-- <input type="checkbox" id="theme-toggle" hidden>
+    <label for="theme-toggle" class="theme-toggle"></label> -->
+
+    <input type="checkbox" id="theme-toggle" hidden (change)="toggleTheme($event.target.checked)">
+    <label for="theme-toggle" class="theme-toggle"></label>
+
+    <a href="#" class="notif">
+      <i class='bx bx-bell'></i>
+      <span class="count">13</span>
+    </a>
+    <a class="profile">
+      <img routerLink="profile" src="../../../../assets/images/logo.png" style="width: min-content;">
+    </a>
+  </nav>
+
+  <!-- End of Navbar -->
+
+  <main>
+    <router-outlet></router-outlet>
+
+  </main>
+
+</div>

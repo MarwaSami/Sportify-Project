@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <div class="register-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group mt-5">
+        <div class="row">
+          <div class="col-md-11">
+            <div class="text-center">
+              <div class="image-upload position-relative">
+                <label for="file-input">
+                  <img src="{{imgSource}}" class="avatar img-circle img-thumbnail rounded-circle" alt="avatar">
+                  <div class="edit">
+                    <i class="fa fa-solid fa-pen-to-square"></i>
+                    <h6 class="">Edit</h6>
+                  </div>
+                  <input id="file-input" type="file" class="form-control" (change)="onFileChange($event)"
+                    accept=".png, jpj">
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-12">
+            <label>Phone Number</label>
+          </div>
+          <div class="col-lg-10 col-md-9 col-sm-12">
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon2">
+                <li class="fa fa-phone"></li>
+              </span>
+              <input type="text" formControlName="PhoneNumber" class="form-control"
+                [ngClass]="{ 'is-invalid': form.controls['PhoneNumber'].errors }" />
+              <div *ngIf="form.controls['PhoneNumber'].errors" class="invalid-feedback">
+                <div *ngIf="form.controls['PhoneNumber'].errors['required']">PhoneNumber is required</div>
+                <div *ngIf="form.controls['PhoneNumber'].errors['minlength']">
+                  PhoneNumber must be at least 6 characters
+                </div>
+                <div *ngIf="form.controls['PhoneNumber'].errors['maxlength']">
+                  PhoneNumber must not exceed 20 characters
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group float-end">
+        <button type="submit" class="Second-button">Update</button>
+        <button type="reset" (click)="onReset()" class="Primary-button ms-5">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>

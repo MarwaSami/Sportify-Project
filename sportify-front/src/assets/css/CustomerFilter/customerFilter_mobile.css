@@ -1,0 +1,46 @@
+@media (max-width:590px) {
+    *{
+        font-size: small;
+    }
+    .fiter-container{
+        width: 96%;
+        margin: 4vh auto;
+    }
+    .filter-search{
+        top: 31vh;
+        width: 90%;
+    }
+    .search-logo{
+        width: 10%;
+        margin-top: 10vh;
+        margin-left: 4%;
+    }
+    .filter-search-inputs{
+        width: 80%;
+        margin-block: 4vh;
+        margin-left: 2%;
+        gap: 15px;
+        grid-template-columns: 1fr ;
+    }
+    main .filter{
+        width: 28%;
+        border-radius: 20px;
+        display: none;
+    }
+    main .mobile-collapse{
+        display: block !important;
+        width: 90%;
+        font-size: x-large;
+    }
+    main .filter-collapse{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    main .playgrounds{
+        padding-left: 2%;
+        width: 80%;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+}

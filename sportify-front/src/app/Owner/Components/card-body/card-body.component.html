@@ -1,0 +1,42 @@
+
+  <img src="https://localhost:59528/Images/{{Pitch?.attachments[0]}}" class="card-img-top" alt="..." />
+  <div class="signs">
+    <div class="dropdown">
+      <a class="dropdown-toggle" data-bs-toggle="dropdown">
+        <img
+          src="assets/images/seemyplaces/dots.png"
+          style="
+            border-radius: 50%;
+            width: 15%;
+            padding: 8px;
+            background-color: rgb(229, 238, 226);"/>
+      </a>
+      <ul class="dropdown-menu">
+        <li><button class="dropdown-item" (click)="Edit(Pitch.id)" >ُEdit </button></li>
+        <li><button class="dropdown-item" (click)="Remove(Pitch.id)">Remove </button></li>
+      </ul>
+    </div>
+
+    <div class="eval">
+      <p>4.5</p>
+      <i class="fa-solid fa-star" style="color: #dfb10c"></i>
+    </div>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">{{Pitch.name}}</h3>
+    <div class="sevices-icons">
+      <div class="first-group"*ngFor="let serv of Pitch.facilities">
+        <i class="fa-solid fa-person-booth"></i>
+        <!-- <p>{{serv.name|services}}</p> -->
+        <p>{{serv}}</p>
+      </div>
+    </div>
+    <p style="font-size: 20px; font-weight: 500; padding-top: 10px">
+    {{Pitch.pricePerHour|currency:'L.E'}}
+    </p>
+    <button routerLink="../place/{{Pitch.id}}"
+      style="border-radius: 10px; position: relative; left: 3%; width: 95%;"
+      class="Second-button">
+      view Details
+    </button>
+  </div>

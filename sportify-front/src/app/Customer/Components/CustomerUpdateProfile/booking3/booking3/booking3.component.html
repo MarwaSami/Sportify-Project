@@ -1,0 +1,67 @@
+
+<div class="container">
+
+  <h4 class="mt-5 fw-bold">UpComing booking({{upcommingArray.length}})</h4>
+
+  <div *ngFor="let i of upcommingArray let x = index" class="card">
+      <div  >
+        <!-- *ngIf="i.reservitionStatus == BookingStatus.Confirmed||i.reservitionStatus == BookingStatus.Pending" -->
+      <div class="card-header">
+          <div class="row">
+              <div class="col-lg-8 col-md-6 col-sm-12">
+                  <h4>{{i.placeName}}</h4>
+                  <p>Booking id:{{i.reservitionId}}</p>
+                  <p>Booking Price:{{i.totalPrice}}</p>
+                  <p> Status   : {{i.reservitionStatus==0?"Pending":"Confirmed"}}</p>
+              </div>
+              <div class=" col-lg-4 col-md-6 col-sm-12 mt-3 float-right">
+                  <button (click)="CancelBooking(i.reservitionId)" class="Primary-button" type="button">Cancel Booking
+                  </button>
+              </div>
+          </div>
+      </div>
+      <div class="text-center p-5">
+          <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                  <p class="text-secondary">Date</p>
+                  <p class="fw-bold">{{i.reservitionDate}}</p>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                  <p class="text-secondary">Start To End </p>
+                  <p class="fw-bold">{{i.reservitionTime}}
+                    :
+                    {{i.reservitionEndTime}}
+                  </p>
+              </div>
+              <!-- <div class="col-lg-4 col-md-6 col-sm-12">
+                  <p class="text-secondary">Booked by</p>
+                  <p class="fw-bold">Frances Guerrero</p>
+              </div> -->
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div  *ngIf="upcommingArray.length == 0">
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-12">
+          <h4>Looks like you have never booked with Sportify</h4>
+          <h1 class="fw-bold mb-5">When you book your trip will be shown here.
+          </h1>
+          <div class="mt-5 mb-5">
+            <button style="width: fit-content; padding: 5px;" class="Primary-button" type="button" (click)="gotoPFilter()">
+              Start Booking Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

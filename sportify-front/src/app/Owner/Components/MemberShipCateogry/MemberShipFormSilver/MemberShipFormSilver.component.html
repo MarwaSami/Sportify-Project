@@ -1,0 +1,120 @@
+<div class="container p-5">
+  <h2>Membership Application</h2>
+  <p>To apply for membership please complete all questions.</p>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" #localForm="ngForm">
+      <div class="row mt-5">
+          <label class="col-lg-2 mb-3" for=""> Name <span style="color: red;">*</span></label>
+          <div class="col-lg-5">
+              <label for="" class="form-label text-secondary">First Name</label>
+              <input class="form-control w-100" id="firstName" formControlName="firstName" type="text"
+                  [class.is-invalid]="localForm.submitted && formGroup.get('firstName')?.invalid">
+              <div class="invalid-feedback">
+                  First Name is required
+              </div>
+          </div>
+          <div class="col-lg-5">
+              <label for="" class="form-label text-secondary">Last Name</label>
+              <input class="form-control w-100" formControlName="lastName" type="text"
+                  [class.is-invalid]="localForm.submitted && formGroup.get('lastName')?.invalid">
+              <div class="invalid-feedback">
+                  Last Name is required
+              </div>
+          </div>
+      </div>
+      <div class="row mt-3">
+          <label for="" class="pb-3">Address</label>
+          <div class="m-3">
+              <input class="form-control w-100" id="address" formControlName="address"
+              [class.is-invalid]="localForm.submitted && formGroup.get('address')?.invalid"
+              type="text">
+              <label for="" class="form-label text-secondary">Street Address</label>
+              <div class="invalid-feedback">
+                  Address is required
+              </div>
+              <div class="row mt-2">
+                  <div class="col-lg-12">
+                      <input class="form-control w-100" id="City" formControlName="city"
+                      [class.is-invalid]="localForm.submitted && formGroup.get('city')?.invalid"
+                       type="text">
+                      <label for="" class="form-label text-secondary"> City </label>
+                      <div class="invalid-feedback">
+                          City is required
+                      </div>
+                  </div>
+              </div>
+              <div class="row mt-2">
+                  <div class="col-lg-12">
+                      <select class="form-select w-100"  id="country" formControlName="country"
+                      [class.is-invalid]="localForm.submitted && formGroup.get('country')?.invalid"
+                       aria-label="Default select example">
+                          <option value="0" selected hidden> Please Select </option>
+                          <option value="1">Egypt</option>
+                          <option value="2">United States</option>
+                          <option value="3">France</option>
+                      </select>
+                      <label for="" class=" form-label text-secondary">Country</label>
+                      <div class="invalid-feedback">
+                          Country is required
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row mt-5">
+          <div class="col-2">
+              <label class="form-label" for="">E-mail</label>
+          </div>
+          <div class="col-10">
+              <input class="form-control w-100" formControlName="email" placeholder=" ex: myname@example.com"
+              [class.is-invalid]="localForm.submitted && formGroup.get('email')?.invalid"
+                  type="text">
+                  <label class="form-label text-secondary" for="">example@example.com</label>
+              <div class="invalid-feedback float-end">
+                  E-mail is required
+              </div>
+          </div>
+      </div>
+
+      <div class="mt-5">
+          <label class="form-label" for="">Membership Type</label>
+          <div class="row p-5">
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                      1 Year Membership
+                  </label>
+                  <span class="float-end fw-bold">$100.00</span>
+              </div>
+              <!-- <div class="form-check mt-5">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <label class="form-check-label" for="flexRadioDefault2">
+                      5 Year Membership
+                  </label>
+                  <span class="float-end fw-bold">$200.00</span>
+              </div> -->
+          </div>
+      </div>
+      <div>
+          <label class="form-label" for="">Billing Address</label>
+          <div class="row p-5">
+              <div class="form-check mt-5">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault3">
+                  <label class="form-check-label" for="flexRadioDefault3">
+                      Use the address above
+                  </label>
+              </div>
+              <div class="form-check mt-5">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault4" checked>
+                  <label class="form-check-label" for="flexRadioDefault4">
+                      I want to specify a different billing address
+                  </label>
+              </div>
+          </div>
+      </div>
+      <div class="text-center mt-3">
+          <button class="Primary-button" type="submit">
+              Apply
+          </button>
+      </div>
+  </form>
+</div>

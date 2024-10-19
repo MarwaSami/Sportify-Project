@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <div class="col-12">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mt-5">
+                <h2>Password</h2>
+                <div class="row input-group mt-5">
+                    <label class="col-lg-2 col-md-3 col-sm-12" for="">Old Password </label>
+                    <div class="col-lg-10 col-md-9 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            <input type="password" formControlName="OldPassword" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['OldPassword'].errors }" />
+                            <div *ngIf="submitted && f['OldPassword'].errors" class="invalid-feedback">
+                                <div *ngIf="f['OldPassword'].errors['required']">Old Password is required</div>
+                                <div *ngIf="f['OldPassword'].errors['minlength']">
+                                    Password must be at least 6 characters
+                                </div>
+                                <div *ngIf="f['OldPassword'].errors['maxlength']">
+                                    Username must not exceed 40 characters
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row input-group mt-5">
+                    <label class="col-lg-2 col-md-3 col-sm-12" for="">New Password </label>
+                    <div class="col-lg-10 col-md-9 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            <input type="password" formControlName="NewPassword" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['NewPassword'].errors }" />
+                            <div *ngIf="submitted && f['NewPassword'].errors" class="invalid-feedback">
+                                <div *ngIf="f['NewPassword'].errors['required']">Password is required</div>
+                                <div *ngIf="f['NewPassword'].errors['minlength']">
+                                    New Password must be at least 6 characters
+                                </div>
+                                <div *ngIf="f['NewPassword'].errors['maxlength']">
+                                    New Password must not exceed 40 characters
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" mt-5 float-end">
+                    <button class="Primary-button" type="submit">Save</button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </form>
+    </div>
+</div>

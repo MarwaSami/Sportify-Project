@@ -1,0 +1,131 @@
+
+/*  start of add place form  */
+.addplace-form{
+padding-top: 4vh;
+width: 70%;
+}
+.container-customform{
+    background-image: url('../../images/Forms/form-background.jpg');
+    height: 100vh;
+    padding-top: 14vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.addplace-img{
+    width: 40%;
+}
+/*  start of progress bar class */
+.step-wizard{
+ width: 60%;
+ margin-left: 20%;
+  box-shadow: 0 5px 10px rgb(0,0,0,.1);
+  background-color: white;
+  border-radius: 25px;
+  padding-top: 6vh;
+}
+.step-wizard .step-wizard-list{
+    margin-left: 20%;
+    padding: 15px 5px 5px 5px ;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+.cate  .step-wizard-list{
+      width: 90%;
+}
+.step-wizard .step-wizard-list .step-wizard-item{
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.step-wizard .step-wizard-list .step-wizard-item span{
+    padding-block: 5px;
+}
+.step-wizard .step-wizard-list .step-line{
+    position: absolute;
+    border: 2px solid var(--Primary-lighter-color) ;
+    width: 61%;
+    margin-left: -16px;
+    z-index: -10;
+    top: 50px;
+}
+.step-wizard .step-wizard-list .progress-count{
+    font-size: 22px;
+    background-color: var(--Primary-lighter-color);
+    color: var(--Secondary-yellow-color);
+    width: 50px;
+    margin-left: 25%;
+}
+.step-wizard .progress-active .progress-count{
+    background-color:var(--Secondary-yellow-color);
+    color:  var(--Primary-lighter-color);
+}
+.step-wizard .form-input,.step-wizard .form-head{
+    width: 70%;
+    margin-left: 15%;
+    z-index: 10;
+}
+/* end of progress bar */
+.form-check-input:checked{
+    background-color: var(--Primary-lighter-color); /* Replace with your desired color */
+    border-color: var(--Primary-lighter-color); /* Replace with your desired color */
+  }
+  .container-customform .step-wizard .add-2{
+    margin-left: 0%;
+    width: 70%;
+  }
+  .container-customform .step-wizard .add-2 .step-wizard-list{
+    margin-left: 10%;
+  }
+  .container-customform .cate{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+ .form-input label{
+      font-size: 14px;
+  }
+  .form-head{
+      color: var(--Primary-Dark-Color);
+      font-size: large;
+  }
+/* start catgories classes */
+.card{
+      margin-block: 3vh;
+      position: relative;
+  }
+  .card:hover{
+  border: 2px  solid var(--Primary-lighter-color);
+  }
+  .card .btn{
+      display: none;
+  }
+  .card:hover .btn{
+      display: block;
+      position: absolute;
+      bottom: 5%;
+      left: 40%;
+      z-index: 10;
+  }
+.addplace-form-cateogries .notactive{
+      display: none;
+    }
+.addplace-form-cateogries{
+      width: 25%;
+      margin-right: 5%;
+    }
+    .addplace-form-cateogries .btn{
+      margin-left: 30%;
+    }
+.addplace-form-cateogries .selectedcate{
+      border: 2px  solid var(--Secondary-yellow-color);
+      color: var(--Primary-lighter-color);
+     }
+/* end catgories classes  */

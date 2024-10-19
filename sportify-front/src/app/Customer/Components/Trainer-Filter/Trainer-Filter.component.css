@@ -1,0 +1,164 @@
+.filter-card {
+  border-radius: 20px;
+  padding-block: 5vh;
+  padding-left: 3%;
+  height: auto;
+  /* max-height: 340px; */
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1.5fr 1.7fr;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.filter-card .image img {
+  border-radius: 20px;
+  height: 29vh;
+  margin-bottom: 3vh;
+}
+
+.filter-card .text hr {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.filter-card ul {
+  all: unset;
+  list-style: none;
+  width: 100%;
+}
+
+.filter-card small {
+  padding-left: -5%;
+  text-align: center;
+}
+
+h3 {
+  font-size: var(--font-size-text);
+  color: var(--Primary-Dark-Color)
+}
+
+nav {
+  background-color: rgba(128, 128, 128, 0.829);
+  height: 8vh;
+}
+
+/* Hero section */
+.fiter-container {
+  width: 85%;
+  margin: 4vh auto;
+}
+
+.hero-container {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+  position: relative;
+}
+
+.hero {
+  background-image: url('../../../../assets/images/customerFilter/hero.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 62vh;
+}
+
+.filter-search {
+  background-color: var(--background-color);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 35vh;
+  width: 90%;
+  margin: 2vh 5%;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0px 4px 2px 2px rgb(216, 213, 213);
+}
+
+.search-logo {
+  all: unset;
+  display: block;
+  background-color: var(--Primary-lighter-color);
+  width: 6%;
+  height: 8vh;
+  margin-top: 3vh;
+  margin-left: 6%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.search-logo img {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.filter-search-inputs {
+  width: 80%;
+  height: auto;
+  margin-block: 4vh;
+  margin-left: 2%;
+  display: flex;
+  gap: 15px;
+}
+
+.custom-select-icon {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("../../../../assets/images/customerFilter/sports.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 2rem;
+  background-size: 30px;
+}
+
+.Location-select {
+  margin-inline: 5%;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+main .filter {
+  width: 20%;
+  border-radius: 20px;
+  padding-bottom: 4vh;
+  box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.2);
+}
+
+main .playgrounds {
+  padding-left: 2%;
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+}
+
+main .Location {
+  background-image: url("../../../../assets/images/customerFilter/map1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  padding-top: 8vh;
+  margin-bottom: 2vh;
+  text-align: center;
+  height: 30vh;
+}
+
+main .filter-item {
+  padding-left: 4%;
+}
+
+.form-check-input:checked {
+  background-color: var(--Primary-lighter-color);
+  /* Replace with your desired color */
+  border-color: var(--Primary-lighter-color);
+  /* Replace with your desired color */
+}

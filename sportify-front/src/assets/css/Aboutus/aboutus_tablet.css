@@ -1,0 +1,21 @@
+@media (max-width:1054px){
+    .aboutus-hero .aboutus-hero-text{
+        width: 60%;
+        padding-top: 2vh;
+    }
+    .aboutus-hero .aboutus-hero-image img{
+      height: 85vh ;
+    }
+}
+@media (max-width:768px){
+    .aboutus-hero .aboutus-hero-text{
+       width: 67%;
+        padding-top: 2vh;
+    }
+    .aboutus-hero .aboutus-hero-image{
+      width: 33%;
+    }
+    .aboutus-hero .aboutus-hero-image img{
+      height: 90vh ;
+    }
+}

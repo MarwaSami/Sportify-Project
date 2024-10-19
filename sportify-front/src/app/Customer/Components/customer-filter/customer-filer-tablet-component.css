@@ -1,0 +1,23 @@
+@media (max-width:992px){
+  *{
+      font-size: small;
+  }
+}
+@media (max-width:768px) {
+  .fiter-container{
+      width: 92%;
+      margin: 4vh auto;
+  }
+
+  main .filter{
+      width: 28%;
+      border-radius: 20px;
+  }
+  main .playgrounds{
+      padding-left: 2%;
+      width: 66%;
+      grid-template-columns: 1fr;
+      gap: 30px;
+  }
+
+}

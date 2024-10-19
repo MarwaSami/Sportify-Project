@@ -1,0 +1,12 @@
+<div class="content">
+  <div class="container">
+    <div class="My-btn">
+      <button class="Primary-button" (click)="Add()">Add New Place</button>
+    </div>
+    <div class="cards-container">
+      <div class="card" *ngFor="let pitch of pitches" style="width: 21rem;">
+        <app-card-body [Pitch]="pitch"></app-card-body>
+      </div>
+    </div>
+  </div>
+</div>

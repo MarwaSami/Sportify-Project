@@ -1,0 +1,35 @@
+<div class="header">
+  <h2>
+
+  </h2>
+</div>
+<div class="Blogs-container">
+  <div class="Dividing">
+    <div class="blog-img">
+      <img [src]="'https://localhost:59528/Images/'+blog.imgUrl"
+      class="card-img-top"
+      alt="..." />
+    </div>
+    <div class="tags">
+      <h4>Blog Category</h4>
+      <ul>
+        <li>{{blog.categoryName}}</li>
+      </ul>
+      <h4>Blog Tags</h4>
+      <ul>
+        <li *ngFor="let tag of tags">{{tag}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="blog-details">
+    <div class="titles">
+      <h2>{{blog.title}}</h2>
+    </div>
+
+    <p class="content">
+      {{blog.content}}
+    </p>
+  </div>
+
+</div>
+

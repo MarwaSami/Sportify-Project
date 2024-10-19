@@ -1,0 +1,85 @@
+<div class="custom_container m-auto mt-4 ">
+  <div class="row">
+    <div class="col-md-8">
+      <div style="padding: 5px;">
+        <h1>{{trainer.userName}}</h1>
+        <h1>Works As {{trainer.jobTitle}}</h1>
+      </div>
+
+
+
+        <div class="card pb-3  mt-3">
+          <div class="card-body ">
+            <h2 class="card-title">Location and Working Hours.</h2>
+
+            <!-- <div id="map" style="margin: 10px; height: 50vh;"></div> -->
+            <h5 class="mt-2" style="margin: 5px;"><i class='fa-solid fa-location-dot'></i>
+             {{trainer.adress}}</h5>
+
+            <hr style="width: 80%; margin: auto; margin:25px auto;">
+            <div class="card-body">
+              <h2 style="text-align: center;" class="card-title">BOOK NOW</h2>
+            </div>
+            <div id="wh" class="d-lg-flex flex-wrap justify-content-between ms-5 me-5">
+              <h2 class="mt-4 ms-2">Working Hours</h2>
+
+              <h5 class="mt-2"></h5>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Book Now</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of trainer.workingHours">
+                    <td>{{item.day}}</td>
+                    <td *ngIf="item.startTime==item.endTime" style="padding-left: 10%;color:green;font-size: larger;">This day is free</td>
+                    <td *ngIf="item.startTime==item.endTime"></td>
+                    <td *ngIf="item.startTime!=item.endTime">{{item.startTime|date:'shortTime'}}</td>
+                    <td *ngIf="item.startTime!=item.endTime">{{item.endTime |date:'shortTime'}}</td>
+                    <td *ngIf="item.startTime!=item.endTime"><button class="card-title" (click)="AddBooking(item)" routerLinkActive="router-link-active">Book Now</button> </td>
+                    <td *ngIf="item.startTime==item.endTime"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3 mt-3">
+
+        <div>
+
+          <div class="card-body">
+            <h2 class="card-title">Description</h2>
+            <div style="padding: 10px;">
+              <h5>{{trainer.description}}</h5>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 ps-md-4">
+      <div class="card mb-3">
+        <div class="card-body-L">
+          <h4 class="card-title">Options</h4>
+          <h5>Category : {{trainer.categoryName}}</h5>
+          <h5>Surface : {{trainer.surface}}</h5>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body-L">
+          <h4 class="card-title"><i class='fas fa-location-arrow'></i> Recommended</h4>
+          <div style="padding: 10px;" class="d-flex flex-column gap-2">
+            <h5> {{trainer.adress}}</h5>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

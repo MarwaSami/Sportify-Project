@@ -1,0 +1,127 @@
+<div class="header">
+  <div class="left">
+    <h1>Dashboard</h1>
+  </div>
+  <a href="#" class="report">
+    <i class='bx bx-cloud'></i>
+    <span>Home</span>
+  </a>
+</div>
+
+<!-- Insights -->
+<ul class="insights" [ngClass]="{'owner':role=='2'}">
+  <li *ngIf="role=='2'"><i class='bx bx-home'></i>
+    <span class="info">
+      <h3>
+        {{places}}
+      </h3>
+      <p>Total Places</p>
+    </span>
+  </li>
+  <li>
+    <i class='bx bx-user'></i>
+    <span class="info">
+      <h3>
+        {{count.customers}}
+      </h3>
+      <p>Total Customers</p>
+    </span>
+  </li>
+  <li><i class='bx bx-calendar-check'></i>
+    <span class="info">
+      <h3>
+        {{count.bookings}}
+      </h3>
+      <p>Total Booking</p>
+    </span>
+  </li>
+  <li><i class='bx bx-dollar-circle'></i>
+    <span class="info">
+      <h3>
+        $ {{count.earnings}}
+      </h3>
+      <p>Total Earnings</p>
+    </span>
+  </li>
+</ul>
+<!-- End of Insights -->
+
+<div class="bottom-data">
+  <div class="orders">
+    <div class="header">
+      <i class='bx bx-receipt'></i>
+      <h3>Recent Orders</h3>
+      <i class='bx bx-filter'><a href="/Owner/See-Reservations" class="btn" *ngIf="role=='2'">Show more</a>
+        <a href="/Trainer/See-Reservations" class="btn" *ngIf="role=='3'">Show more</a>
+      </i>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Booking Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="role=='2'">
+        <tr *ngFor="let resevation of reservations">
+          <td>
+            <img src="../../../assets/images/img1.jpg">
+            <p *ngIf="role=='2'">{{resevation.userName}}</p>
+          </td>
+          <td>{{resevation.reservationDate}}</td>
+          <td>
+            {{resevation.status==0?"Pending":(resevation.status==1)?"Confirmed":(resevation.status==2)?"Completed":"Rejected"}}
+          </td>
+      </tbody>
+      <tbody *ngIf="role=='3'">
+        <tr *ngFor="let resevation of Tresrvations">
+          <td>
+            <img src="../../../assets/images/img1.jpg">
+            <p *ngIf="role=='3'">{{this.resevation.userName}}</p>
+          </td>
+          <td>{{resevation.startTime.split('T')[0]}}</td>
+          <td>
+            {{resevation.status==0?"Pending":(resevation.status==1)?"Rejected":(resevation.status==2)?"Confirmed":"Completed"}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Reminders
+    <div class="reminders">
+        <div class="header">
+            <i class='bx bx-note'></i>
+            <h3>Remiders</h3>
+            <i class='bx bx-filter'></i>
+            <i class='bx bx-plus'></i>
+        </div>
+        <ul class="task-list">
+            <li class="completed">
+                <div class="task-title">
+                    <i class='bx bx-check-circle'></i>
+                    <p>Start Our Meeting</p>
+                </div>
+                <i class='bx bx-dots-vertical-rounded'></i>
+            </li>
+            <li class="completed">
+                <div class="task-title">
+                    <i class='bx bx-check-circle'></i>
+                    <p>Analyse Our Site</p>
+                </div>
+                <i class='bx bx-dots-vertical-rounded'></i>
+            </li>
+            <li class="not-completed">
+                <div class="task-title">
+                    <i class='bx bx-x-circle'></i>
+                    <p>Play Footbal</p>
+                </div>
+                <i class='bx bx-dots-vertical-rounded'></i>
+            </li>
+        </ul>
+    </div> -->
+
+  <!-- End of Reminders-->
+
+</div>

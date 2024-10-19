@@ -1,0 +1,146 @@
+<form *ngIf="!isloading" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <div class="container bootstrap snippets bootdey">
+        <div class="head_profile">
+            <h1 class="text-success ">Edit Profile</h1>
+            <input type="button" value="Set Your Schedule" class="Primary-btn bg-success text-light"
+                style="margin-left: 50%;" routerLink="/Trainer/schedule">
+        </div>
+
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="image-upload position-relative">
+                        <label for="file-input">
+                            <img src="{{imgSource}}" class="avatar img-circle img-thumbnail rounded-circle"
+                                alt="avatar">
+                            <div class="edit">
+                                <i class="fa fa-solid fa-pen-to-square"></i>
+                                <h6 class="">Edit</h6>
+                            </div>
+                            <input id="file-input" type="file" class="form-control" (change)="onFileChange($event)"
+                                accept=".png, jpj">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+
+        <h3>Personal info</h3>
+
+                <div class="form-group col-md-8 mb-1">
+                    <label for="validationDefault01">User Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="User Name" formControlName="UserName"
+                            required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label for="validationDefault01">Job Title</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="Job Title" formControlName="JobTitle"
+                            required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label for="validationDefault01">Description</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="Description" formControlName="Description"
+                            required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label class="form-label" for="phone">Phone number</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-phone"></i></span>
+                        <input type="tel" class="form-control" name="phone" type="text"
+                            placeholder="Enter your phone number" aria-describedby="inputGroupPrepend2"
+                            formControlName="PhoneNumber" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1 ">
+                    <label for="validationDefault03">City</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-location-dot"></i></span>
+                        <input type="text" class="form-control" placeholder="City" formControlName="City" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-envelope"></i></span>
+                        <input type="email" class="form-control" placeholder="Enter email" formControlName="Email">
+                    </div>
+                </div>
+                <div class="options" style="display: flex; gap: 20px;">
+                    <div class="dropdown">
+                        <button class="Primary-btn col-md-12 mb-2 bg-success text-light dropdown-toggle" type="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">Category
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" [ngClass]="{'active': CategoryID==2}"
+                                    (click)="chooseCategory(2)">Swimming</a></li>
+                            <li><a class="dropdown-item" [ngClass]="{'active': CategoryID==5}"
+                                    (click)="chooseCategory(5)">GYM</a></li>
+                            <li><a class="dropdown-item" [ngClass]="{'active': CategoryID==7}"
+                                    (click)="chooseCategory(7)">Athletics</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="Primary-btn col-md-12 mb-2 bg-success text-light dropdown-toggle" type="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+                            Surface
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" [ngClass]="{'active': SurfaceID==1}"
+                                    (click)="choosesurface(1)">Males</a></li>
+                            <li><a class="dropdown-item" [ngClass]="{'active': SurfaceID==2}"
+                                    (click)="choosesurface(2)">Females</a></li>
+                            <li><a class="dropdown-item" [ngClass]="{'active': SurfaceID==3}"
+                                    (click)="choosesurface(3)">Both</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-8 mb-1 ">
+                    <label for="validationDefault03">Price Per Session</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa-solid fa-money-bill"></i></span>
+                        <input type="number" class="form-control" placeholder="price" formControlName="PricePerSession"
+                            required>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-8 mb-1">
+                    <label for="exampleInputPassword1">Current Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="Current Password"
+                            formControlName="CurrentPassword">
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label for="exampleInputPassword1">New Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="New Password"
+                            formControlName="NewPassword">
+                    </div>
+                </div>
+                <div class="">
+
+                    <button class="Primary-btn col-md-8 mb-2 bg-success text-light" type="submit">Update Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    </form>

@@ -1,0 +1,17 @@
+<div class="filter-card">
+  <div class="image">
+    <img src="https://localhost:59528/Images/{{place?.attachments[0]}}" alt="">
+    <a href="Customer/see-schedule/{{place?.id}}"  class="btn Primary-button w-100 mt-2">View Details</a>
+    <!-- <input type="button" value="View Details" class="btn Primary-button w-100 mt-2" [id]="place?.iD" (click)="showdetails($event)"> -->
+  </div>
+  <div class="text">
+    <h3>{{place?.name}}</h3>
+    <p> {{(place?.description.length>100)? (place?.description|slice:0:100) + ' .....':(place?.description)}}</p>
+    <hr>
+    <ul>
+      <li *ngFor="let facility of place?.facilities"> <small><i class="fa-solid fa-house-medical" style="color:var(--Primary-Dark-Color);"></i>
+          {{facility}}</small> </li>
+    </ul>
+
+  </div>
+</div>

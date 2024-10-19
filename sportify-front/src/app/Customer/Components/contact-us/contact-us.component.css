@@ -1,0 +1,76 @@
+body{
+  position: relative;
+}
+.contact-us{
+ margin-top: 15vh;
+ padding-top: 14vh;
+ padding-inline: 4%;
+ padding-bottom: 3vh;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ height: auto;
+ color: white;
+ background-color: var( --Secondary-yellow-color);
+}
+.contact-us-envlope{
+ width: 40%;
+ background-color: var(--Primary-Dark-Color);
+ height: 60vh;
+}
+.contact-us-envlope .line{
+ margin-top: 10vh;
+ border-top: 3px solid white;
+ margin-bottom: 5vh;
+}
+.contact-us h2,.contact-us p{
+ padding-left: 5%;
+}
+.contact-us-envlope ul li{
+ padding-left: 5%;
+ padding-block: 2vh;
+}
+.contact-us-envlope ul li i{
+ padding-right: 2%;
+}
+.contact-us-en-inside{
+ background: url('../../../../assets/images/map.jpg');
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+ position: absolute;
+ border-radius: 25px 25px 0 0;
+ width: 26%;
+ margin-inline: 4.8%;
+ height: 30vh;
+ z-index: 10;
+ top: 15vh;
+/* margin-top: -5vh; */
+}
+.contact-us-text{
+ width: 55%;
+ padding-left: 4%;
+ color: #75898A;
+}
+.contact-us h1{
+ color: var(--Primary-Dark-Color);
+}
+.contact-us-text .input{
+ all: unset;
+ padding-block: 1vh;
+}
+.contact-us-text .line{
+ border-top: 1px solid var(--Primary-Dark-Color);
+ width: 80%;
+ margin-block: 2vh;
+}
+.contact-us-text small{
+ padding-left: 30%;
+}
+.contact-us-text button{
+ margin-top: 3vh;
+ margin-left: 25%;
+}
+button:disabled{
+  cursor:not-allowed;
+}

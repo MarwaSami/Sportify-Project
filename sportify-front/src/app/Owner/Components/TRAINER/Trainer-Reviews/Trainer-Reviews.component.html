@@ -1,0 +1,124 @@
+
+<h1>Reviews</h1>
+<div  class="row text-center">
+    <div  class="col-6">
+        <h6>Total Reviews</h6>
+        <div class="row">
+            <p class="col-12 fw-bold fs-3">{{TotalCount}}</p>
+        </div>
+    </div> 
+    <div class="col-6">
+        <h6>Average Rating</h6>
+        <div class="row">
+            <p class="fw-bold fs-3">{{TotalRate}}</p>
+            <div class="star-rating">
+                <span *ngIf="TotalRate == 1" class="fa fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 1" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 1" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 1" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 1" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 2" class="fa fa-star" data-rating="2"></span>
+                <span *ngIf="TotalRate == 2" class="fa fa-star" data-rating="2"></span>
+                <span *ngIf="TotalRate == 2" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 2" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 2" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 3" class="fa fa-star" data-rating="3"></span>
+                <span *ngIf="TotalRate == 3" class="fa fa-star" data-rating="3"></span>
+                <span *ngIf="TotalRate == 3" class="fa fa-star" data-rating="3"></span>
+                <span *ngIf="TotalRate == 3" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 3" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 4" class="fa fa-star" data-rating="4"></span>
+                <span *ngIf="TotalRate == 4" class="fa fa-star" data-rating="4"></span>
+                <span *ngIf="TotalRate == 4" class="fa fa-star" data-rating="4"></span>
+                <span *ngIf="TotalRate == 4" class="fa fa-star" data-rating="4"></span>
+                <span *ngIf="TotalRate == 4" class="fa-regular fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 5" class="fa fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 5" class="fa fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 5" class="fa fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 5" class="fa fa-star" data-rating="5"></span>
+                <span *ngIf="TotalRate == 5" class="fa fa-star" data-rating="5"></span>
+                <input type="hidden" name="whatever2"class="rating-value" value="2.56">
+               
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div *ngFor="let r of reviews" class="row pt-5 pb-5">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-3 border-light">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://localhost:59528/Images/{{r.userImg}}" style="height: 100%;" class="img-fluid rounded-start"
+                                alt="img">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{r.userName}}</h5>
+                        <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+                            quas, optio nesciunt quasi nisi ex,
+                            deleniti eligendi aliquam?</p> -->
+                        <!-- <p class="card-text"><small class="text-muted">{{r.date}}</small></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-sm-12">
+        <div class="row">
+            <div class="col-lg-9 mt-1">
+                <div class="star-rating">
+                    <span *ngIf="r.rateValue == 1" class="fa fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 1" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 1" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 1" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 1" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 2" class="fa fa-star" data-rating="2"></span>
+                    <span *ngIf="r.rateValue == 2" class="fa fa-star" data-rating="2"></span>
+                    <span *ngIf="r.rateValue == 2" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 2" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 2" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 3" class="fa fa-star" data-rating="3"></span>
+                    <span *ngIf="r.rateValue == 3" class="fa fa-star" data-rating="3"></span>
+                    <span *ngIf="r.rateValue == 3" class="fa fa-star" data-rating="3"></span>
+                    <span *ngIf="r.rateValue == 3" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 3" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 4" class="fa fa-star" data-rating="4"></span>
+                    <span *ngIf="r.rateValue == 4" class="fa fa-star" data-rating="4"></span>
+                    <span *ngIf="r.rateValue == 4" class="fa fa-star" data-rating="4"></span>
+                    <span *ngIf="r.rateValue == 4" class="fa fa-star" data-rating="4"></span>
+                    <span *ngIf="r.rateValue == 4" class="fa-regular fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 5" class="fa fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 5" class="fa fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 5" class="fa fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 5" class="fa fa-star" data-rating="5"></span>
+                    <span *ngIf="r.rateValue == 5" class="fa fa-star" data-rating="5"></span>
+                    <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                   
+                </div>
+            </div> 
+            <p class="text-secondary">{{r.ratemsg}}
+            </p>
+            <div class=" btn-group" role="group">
+                <!-- <div class="m-2">
+                    <button type="button" class="btn bg-light">
+                        Public Comment
+                    </button>
+                </div>
+                <div class="m-2">
+                    <button type="button" class="btn bg-light ml-5">
+                        Show message
+                    </button>
+                </div> -->
+                <!-- <div *ngIf="r.like" class="m-2">
+                    <button type="button" class="btn bg-light">
+                        <i class="fa fa-heart text-danger"></i>
+                    </button>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr>
+

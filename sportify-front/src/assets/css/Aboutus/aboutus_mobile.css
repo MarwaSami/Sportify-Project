@@ -1,0 +1,32 @@
+@media (max-width:576px) {
+    /* aboutus-intro */
+    .aboutus-intro a{
+        margin-left: 32%;
+    }
+    /* about us */
+    .aboutus-hero .aboutus-hero-text{
+        width: 100%;
+        padding-top: 2vh;
+    }
+    .aboutus-hero .aboutus-hero-image {
+    display: none;
+    }
+    /* FAQ */
+    .whychooseus .whychooseus-text{
+        width: 100%;
+    }
+    .whychooseus .whychooseus-image{
+        display: none;
+    }
+    /* team */
+    .team{
+        grid-template-columns: repeat(2,1fr);
+        gap: 25px;
+    }
+    /* counter */
+    .aboutus-counters{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 40px;
+    }
+}

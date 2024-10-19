@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="details-title">
+    <h1>{{placeName}}</h1>
+    <button style="width: 160px !important; height: 7vh; border-radius: 10px;" class="Primary-button" (click)="Edit(place.id)">
+      Edit Pitch</button>
+  </div>
+  <div class="split-images">
+    <img *ngFor="let item of place.attachments" src="https://localhost:59528/Images/{{item}}" alt="">
+  </div>
+  <div class="more-details">
+    <div class="play-name">
+      <h2>Category : {{place.category}}</h2>
+    </div>
+    <div class="address">
+      <i class="fa-solid fa-location-dot"></i>
+      <p>{{place.address}}</p>
+    </div>
+
+    <p class="facility-description">{{place.description}}</p>
+    <div class="pitch-services-split">
+      <div class="pitch-service" *ngFor="let item of place.facilities">
+        <i class="fa-solid fa-shop"></i>
+        <p>{{item}}</p>
+      </div>
+    </div>
+
+
+    <div class="booking">
+      <div class="booking-card">
+        <h3>BOOKING</h3>
+        <hr>
+        <!-- <div class="inputs">
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i
+                class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon"
+              aria-describedby="button-addon1">
+          </div>
+
+          <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+            <option selected>Sort By</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div> -->
+
+        <div>
+          <div class="bottom-data">
+            <div class="orders">
+              <table>
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Order Date</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="reservationTableBody" *ngFor="let item of place.bookings">
+                  <tr>
+                    <td>
+                      <p>{{item.name}}</p>
+                    </td>
+                    <td>{{item.orderDate.split('T')[0]}}</td>
+                    <td>{{item.startTime.split('T')[1]}}</td>
+                    <td>{{item.endTime.split('T')[1]}}</td>
+                    <td>{{item.totalPrice}}</td>
+                    <td>{{item.status==0?"Pending":(item.status==1)?"Confimed":"Completed"}}
+                    </td>
+                    <td>
+                      <button *ngIf="item.status==0" (click)="confirmBooking(item.id)"
+                        class="status completed  border-0  btn-confirm">Confirm</button>
+                      <button *ngIf="item.status==1" (click)="completeBooking(item.id)"
+                        class="status pending  border-0  btn-reject">Complete</button>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="table-footer">
+
+          <!-- <p>Shoeing 1 out of 8 Entries</p>
+
+          <ul class="pagination">
+            <li><a href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">«</a></li>
+            <li><a href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">1</a></li>
+            <li><a class="active" href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">2</a></li>
+            <li><a href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">3</a></li>
+            <li><a href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">4</a></li>
+            <li><a href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">5</a></li>
+            <li><a href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">6</a></li>
+            <li><a href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">7</a></li>
+            <li><a href="tryit.asp-filename=trycss_ex_pagination_border_round.html#">»</a></li>
+          </ul> -->
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

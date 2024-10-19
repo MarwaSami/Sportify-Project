@@ -1,0 +1,170 @@
+/* start intro */
+h1{
+    color: var(--Primary-Dark-Color);
+}
+.caccordion .accordion-button {
+    background-color: var(--Primary-lighter-color);
+    color: white;
+}
+.accordion-button:focus {
+    border-color: var(--Primary-Dark-Color);
+    box-shadow: 0 0 0 0.25rem rgba(41, 253, 13, 0.185);
+  }
+.aboutus-intro{
+    background: radial-gradient(circle,#000000a8 ,rgba(47,40,90,.7)),url('../../images/Aboutus/sport_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+     height: 50vh;
+     margin-bottom: 4vh;
+}
+.aboutus-intro h1{
+    color: white;
+    padding-top: 15vh;
+    text-align: center;
+    text-transform: capitalize;
+}
+.aboutus-intro a{
+    margin-left: 42%;
+}
+/* end intro */
+/* start hero section */
+.aboutus-hero{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+margin-top: 2vh;
+width: 80%;
+margin-left: 10%;
+margin-bottom: 6vh;
+}
+.aboutus-hero .aboutus-hero-text{
+    width: 60%;
+    padding-top: 15vh;
+    padding-left: 4%;
+    justify-content: center;
+}
+  h3{
+    color: var(--Primary-lighter-color);
+    font-size: var( --font-size-subhead);
+}
+.aboutus-hero .aboutus-hero-text h1{
+    color: var(--Primary-Dark-Color);
+    font-size: var( --font-size-head);
+}
+.aboutus-hero .aboutus-hero-image{
+    width: 40%;
+    display: block;
+}
+
+.aboutus-hero-image img{
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+   border-radius: 25px 0 0 25px;
+}
+  
+/* end hero section */
+/* start aboutus-sevices */
+.aboutus-sevices{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 50px;
+  margin-bottom: 4vh;
+}
+.aboutus-sevices .aboutus-service{
+    border-radius: 25px 25px 0 0;
+    text-align: center;
+}
+.aboutus-sevices .aboutus-service img {
+    width: 100%;
+    height: 25vh;
+    margin-bottom: 2vh;
+}
+.aboutus-sevices .aboutus-service h3{
+    font-size: 16px;
+}
+.aboutus-sevices .aboutus-service p{
+    font-size: 12px;
+}
+/* end aboutus-sevices */
+/* start whychooseus */
+.whychooseus{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 4vh;
+}
+.whychooseus .whychooseus-text{
+    width: 55%;
+}
+.whychooseus .whychooseus-text h1{
+    padding-top: 2vh;
+    padding-bottom: 8vh;
+}
+.whychooseus .whychooseus-image{
+    width: 36%;
+    display: block;
+}
+.whychooseus .whychooseus-image img{
+    border-radius: 25px;
+   
+}
+/* end whychooseus */
+/* start of teams */
+.team-title{
+    text-align: center;
+}
+.team{
+    margin-block: 4vh;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+.team .team-member img{
+margin-bottom: 3vh;
+}
+/* end of teams */
+/*  start of aboutus-counters */
+.aboutus-counters{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 40px;
+}
+.aboutus-counters .aboutus-counter .line{
+    width: 60%;
+    margin-left: 20%;
+    border-top: 2px dashed var(--Secondary-dark-color);
+    margin-bottom: 1vh;
+}
+.aboutus-counters .aboutus-counter{
+    /* border: 5px solid white; */
+    text-align: center;
+    box-shadow: 0 0 0 0.2rem rgba(41, 253, 13, 0.199);
+}
+/* end of aboutus-counters */
+/* start of Contactus */
+.Contactus{
+    margin-block: 4vh;
+    padding-block: 4vh;
+    background-color: var(--Primary-Dark-Color);
+}
+.Contactus h1{
+    color: white;
+    text-align: center;
+    margin-bottom: 4vh;
+}
+.Contactus p{
+    color: white;
+    width: 60%;
+    margin-left: 20%;
+    text-align: center;
+    margin-bottom: 4vh;
+}
+.Contactus .btn-contact{
+ border-radius: 20px;
+ padding-block: 3px;
+ padding-inline: 15px;
+ margin-left: 40%;
+ margin-bottom: 4vh;
+}
+/* ends of Contactus  */

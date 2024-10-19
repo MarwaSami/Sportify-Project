@@ -1,0 +1,102 @@
+<div class="container-customform">
+  <form action="" id="" [formGroup]="locationForm" (ngSubmit)="send()">
+    <div class="step-wizard">
+      <ul class="step-wizard-list">
+        <div class="step-line"></div>
+        <li class="step-wizard-item">
+          <span class="progress-count rounded-circle">
+            1
+          </span>
+          <span class="progress-label">
+            Place's Info
+          </span>
+        </li>
+        <li class="step-wizard-item">
+          <span class="progress-count rounded-circle">
+            2
+          </span>
+          <span class="progress-label">
+            Place's Facilities <br> and it's Category
+          </span>
+        </li>
+        <li class="step-wizard-item">
+          <span class="progress-count rounded-circle">
+            3
+          </span>
+          <span class="progress-label">
+            Place's Schedule
+          </span>
+        </li>
+        <li class="step-wizard-item progress-active">
+          <span class="progress-count rounded-circle">
+            4
+          </span>
+          <span class="progress-label">
+            Place's Location
+          </span>
+        </li>
+      </ul>
+      <div class="error" *ngIf="(errorvalue!='')">
+        <p>{{errorvalue}} <span><i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i></span></p>
+      </div>
+      <div class="form-input" style="text-align: center;">
+        <label for="location" class="col-form-label me-5">Select Your location </label>
+      </div>
+      <br>
+      <br>
+      <div class="row g-3 align-items-center form-input">
+        <div class="col-auto">
+          <label for="" class="form-check-label">By City,street </label>
+          <input type="checkbox" id="1" class="form-check-input m-1" name="location" (change)="option($event)">
+        </div>
+        <div class="col-auto">
+          <label for="" class="form-check-label">By choosing from map </label>
+          <input type="checkbox" id="2" class="form-check-input m-1" name="location" (change)="option($event)">
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row g-3 align-items-center form-input" *ngIf="optionid==1||optionid==3">
+        <div class="col-3" style="padding-left: 10%;">
+          <label for="capacity" class="col-form-label"> City </label>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+          <input type="text" class="form-control m-1" placeholder="Enter your city"  formControlName="City">
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">
+            <span *ngIf="locationForm.controls['City'].hasError('required')">
+              Please Enter a valid City.</span>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center form-input" *ngIf="optionid==1||optionid==3">
+        <div class="col-3" style="padding-left: 10%;">
+          <label for="street" class="col-form-label"> Street </label>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+          <input type="text" class="form-control m-1" placeholder="Enter your street" formControlName="Street">
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">
+            <span *ngIf="locationForm.controls['Street'].hasError('required')">
+              Please Enter a valid Capacity.</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="optionid==2||optionid==3" style="margin-left: 3%;">
+        <google-map  class="map" [center]="center" [zoom]="zoom" (mapClick)="moveMap($event)">
+          <map-marker [position]="marker.position"></map-marker>
+        </google-map>
+        <div>Latitude: {{center?.lat}},Longitude: {{center?.lng}}</div>
+      </div>
+      <div class="" style="margin-top: 3%;">
+        <button class="Primary-button before-btn"  routerLink="/Owner/addplace/P3">
+          Before
+        </button>
+        <button class="Primary-button next-btn"
+          [disabled]="optionid==0" type="submit">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

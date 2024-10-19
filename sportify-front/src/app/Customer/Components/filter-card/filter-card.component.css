@@ -1,0 +1,30 @@
+.filter-card{
+  border-radius: 20px;
+  padding-block: 5vh;
+  padding-left: 3%;
+  margin-block: 0;
+  height: auto;
+  /* max-height: 340px; */
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1.5fr 1.7fr;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+   .filter-card .image img{
+    border-radius: 20px;
+    height: 29vh;
+    margin-bottom: 3vh;
+  }
+   .filter-card .text hr{
+    width: 80%;
+    margin-left: 10%;
+  }
+   .filter-card ul{
+    all: unset;
+    list-style: none;
+    width: 100%;
+  }
+   .filter-card small{
+    padding-left: -5%;
+    text-align: center;
+  }

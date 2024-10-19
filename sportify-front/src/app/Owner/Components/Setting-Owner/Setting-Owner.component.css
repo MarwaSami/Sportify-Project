@@ -1,0 +1,62 @@
+.courses{
+    width: 80%;
+    padding-top: 50px;
+    text-align: center;
+    margin: auto;
+   margin-top: -5vh;
+}
+
+h1{
+    font-size: 36px;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+p{
+    color: #777;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    font-family: sans-serif;
+}
+span{
+  color: #2f2d97;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.course-col {
+    flex-basis: 31%;
+    background-color: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    transition: .5s;
+}
+h3{
+    font-weight: 500;
+    text-align: center;
+    margin: 10px 0 ;
+    font-family: sans-serif;
+}
+.course-col p{
+    text-align: justify;
+    font-family: sans-serif;
+}
+.course-col:hover{
+    box-shadow: 0 0 20px 0 rgba(0 , 0 , 0 , .6);
+    cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,141 @@
+<div class="container-customform">
+  <form action="" id="" [formGroup]="Place_Facit_category" (ngSubmit)="send()">
+    <div class="step-wizard cate">
+      <ul class="step-wizard-list ">
+        <div class="step-line"></div>
+        <li class="step-wizard-item ">
+          <span class="progress-count rounded-circle">
+            1
+          </span>
+          <span class="progress-label">
+            Place's Info
+          </span>
+        </li>
+        <li class="step-wizard-item progress-active">
+          <span class="progress-count rounded-circle">
+            2
+          </span>
+          <span class="progress-label">
+            Place's Facilities <br> and it's Category
+          </span>
+        </li>
+        <li class="step-wizard-item">
+          <span class="progress-count rounded-circle">
+            3
+          </span>
+          <span class="progress-label">
+            Place's Schedule
+          </span>
+        </li>
+        <li class="step-wizard-item">
+          <span class="progress-count rounded-circle">
+            4
+          </span>
+          <span class="progress-label">
+            Place's Location
+          </span>
+        </li>
+      </ul>
+      <div class="add-2" [ngClass]="{'w-100':isedited}">
+        <div class="error" *ngIf="(!(haveAttach||havecate))||(errorvalue!='')">
+          <p>{{errorvalue}} <span><i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i></span></p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row g-3 align-items-center form-input">
+          <div class="col-auto">
+            <label for="Facilities" class="col-form-label me-5">Facilities </label>
+          </div>
+          <div class="col-auto">
+            <div class="form-check" formArrayName="Facilities_ids" class="col-12"
+              *ngFor="let item of facilitesList.controls;let i= index">
+              <input type="checkbox" [id]="i" class="form-check-input" [formControlName]="i" [value]="item.value" #i
+               >
+              <label for="" class="form-check-label">{{Facilitelem[i].name}}</label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row g-3 align-items-center form-input " *ngIf="isedited">
+          <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+            <label class="form-label">Do You need to Add new Attachements?</label>
+          </div>
+          <div class="col-lg-2 col-md-2 col-xs-12" >
+            <input type="checkbox" class="form-check" (change)="Showattachment($event)">
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row g-3 align-items-center form-input"  [ngClass]="{'Show':(!isedited),'Hide':(isedited)}">
+          <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+            <label for="location" class="form-label">Add Attachments</label>
+          </div>
+          <div class="col-lg-8 col-md-8 col-xs-12">
+            <input type="file" class="form-control" multiple #file (change)="upload(file)">
+          </div>
+          <div class="col-12" *ngIf="isedited">
+            <span class="text-danger"> <i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i>if you
+              add any attahcment ,you will need to add all old and new attachments</span>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div *ngIf="isedited">
+          <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel"  *ngFor="let attach of this.place.attachments let i=index">
+            <div class="carousel-inner">
+              <div class="carousel-item " [ngClass]="{'active':i==0}">
+                <img src="https://localhost:59528/Images/{{attach}}" class="d-block w-50" style="margin-left: 25%;">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row g-3 align-items-center form-input" *ngIf="isedited">
+          <select class="col-lg-8 col-md-8 col-xs-12 form-select" (change)="selectedcategory($event)">
+            <option *ngFor="let item of Categorieselem" [value]="item.id">
+              {{item.name}}
+            </option>
+          </select>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="">
+          <button class="Primary-button before-btn" routerLink="/Owner/addplace/P1">
+            Before
+          </button>
+          <button class="Primary-button next-btn" [disabled]="!(haveAttach&&havecate)" type="submit">
+            Next
+          </button>
+        </div>
+        <br>
+        <br>
+
+      </div>
+      <section class="addplace-form-cateogries" *ngIf="!isedited">
+        <button class="btn" (click)="goup($event)" type="button"><i class="fa-solid fa-chevron-up fa-2xl"
+            style="color:var(--Primary-lighter-color);"></i></button>
+        <div class="card" *ngFor="let card of Categoriescard">
+          <img src="https://localhost:59528/Images/category{{card.pic}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{card.name}}</h5>
+            <button class="btn" #selected (click)="selectedcategory(selected)" [id]="card.id"><i
+                class="fa-solid fa-check fa-xl" style="color:var(--Primary-lighter-color);"></i></button>
+          </div>
+        </div>
+        <button class="btn" (click)="godown()" type="button"><i class="fa-solid fa-chevron-down fa-2xl"
+            style="color:var(--Primary-lighter-color);"></i></button>
+      </section>
+    </div>
+  </form>
+</div>

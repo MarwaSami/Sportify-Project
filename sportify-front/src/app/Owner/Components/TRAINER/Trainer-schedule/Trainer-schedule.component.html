@@ -1,0 +1,54 @@
+<div class="container-customform" *ngIf="showForm">
+  <form action="" id="" [formGroup]="ScheduleForm" (ngSubmit)="send()">
+    <div class="step-wizard">
+      <div class="row g-3 align-items-center form-head">
+          <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10" style="padding-left: 14%;">
+            <label for="name" class="col-form-label" >Day </label>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                <label for="name" class="col-form-label" >Start Time </label>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                <label for="name" class="col-form-label" >End Time  </label>
+          </div>
+        </div>
+        <br>
+        <br>
+      <!-- <div  formGroup="" class=" align-items-center form-input" *ngFor="let item of Schedulearr.controls let i=index let even= even;">
+       <div class="row" *ngIf="even">
+        <div class="col-4" style="padding-left: 14%;" >
+          <label for="name" class="col-form-label" >{{day[i/2]}} ,{{i}}</label>
+        </div>
+        <div class="col-4">
+          <input type="time" id="starttimesat" class="form-control" [formControlName]="i" [value]="item.value" >
+        </div>
+        <div class="col-4">
+          <input type="time" id="endtimesat" class="form-control" [formControlName]="++i" [value]="++item.value">
+        </div>
+      </div>
+      <br>
+       </div> -->
+    <div *ngIf="!(errorvalue=='')" class="error">{{errorvalue}}</div>
+    <br>
+    <br>
+    <div class="row g-3 align-items-center form-input p-2" *ngFor="let day of days">
+        <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10" style="padding-left: 14%;">
+          <label for="name" class="col-form-label" >{{day}} </label>
+        </div>
+        <div [formArrayName]="day" class="col-lg-4 col-md-4 col-sm-6 col-xs-6" *ngFor="let item of Schedulearr(day).controls let i=index">
+          <input type="time" id="starttimemon" class="form-control"  [formControlName]="i" [value]="item.value">
+        </div>
+      </div>
+    <br>
+    <br>
+
+    <div  style="margin-left: 25%;">
+        <button class="Primary-button next-btn"  type="submit"
+        [disabled]="ScheduleForm.invalid||errorvalue!=''"style="margin-left: 25%;">
+        Submit
+      </button>
+    </div>
+    </div>
+  </form>
+</div>
+<app-LoaderPage *ngIf="!showForm"></app-LoaderPage>

@@ -1,0 +1,137 @@
+/* Custom CSS for the file input button */
+.custom-file-label::after {
+  content: "Browse"; /* Change the button text */
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+  border-color: #4CAF50; /* Change the border color when the input is focused */
+}
+
+.custom-file-label::after {
+  background-color: #4CAF50; /* Change the background color of the button */
+  color: white; /* Change the text color of the button */
+}
+
+
+
+
+/* .back-ground{
+  background-image: url('../../assets/images/footbalcopy.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+/* .inlineList {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
+    max-height: 150px;
+    overflow-y: auto;
+    max-width: 400px;
+  }
+ .form-control{
+  margin-left: 400px;
+ }
+  .listItem{
+    margin: 5px !important;
+  }
+
+  .d-inline-block {
+    display: inline-block!important;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.b-form-tag {
+    font-size: 75%;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-right: 0.25rem;
+}
+
+.d-inline-flex {
+    display: inline-flex!important;
+}
+
+.align-items-baseline {
+    align-items: baseline!important;
+}
+
+
+.b-form-tag>button.b-form-tag-remove {
+    font-size: 125%;
+    line-height: 1;
+    float: none;
+    margin-left: 0.25rem;
+}
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+  .Primary-btn {
+    height: 40px;
+    border: 2px solid var(--Primary-lighter-color);
+    background-color: var(--background-color);
+    color: var(--Primary-lighter-color);
+    font-size: var(--font-size-subtext);
+    font-weight: var(--font-weight-head3);
+    letter-spacing: 1px;
+    transition: all .5s;
+    
+  }
+  
+  .Primary-btn:hover {
+    background-color: var(--Primary-lighter-color);
+    color: var(--Secondary-yellow-color);
+  }
+  .fa {
+    line-height: 1.5;
+  }
+  .edit {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    top: 50%;
+    left: 40%;
+    position: absolute;
+    font-size: large;
+  }
+  .edit>* {
+    padding: 0;
+    margin: 0;
+  }
+  .avatar {
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    width: 120px;
+    height: 120px;
+  }
+  #file-input {
+    display: none;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .image-center{
+    display: block;
+    margin-right:  auto;
+    margin-left: 130px;
+    margin-bottom: 15px;
+  }
+  .width-400{
+    width: 500px;
+
+  } */

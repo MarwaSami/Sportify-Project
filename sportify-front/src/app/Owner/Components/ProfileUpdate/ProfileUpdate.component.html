@@ -1,0 +1,111 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <div class="container bootstrap snippets bootdey">
+        <h1 class="text-success ">Edit Profile</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="image-upload position-relative">
+                        <label for="file-input">
+                            <!-- ../assets/images/ProfileUpdate/register-form.png -->
+                            <img src="{{imgSource}}" class="avatar img-circle img-thumbnail rounded-circle"
+                                alt="avatar">
+                            <div class="edit">
+                                <i class="fa fa-solid fa-pen-to-square"></i>
+                                <h6 class="">Edit</h6>
+                            </div>
+                            <input id="file-input" type="file" class="form-control" formControlName="profileImage"
+                                (change)="onFileChange($event)" accept=".png, jpj">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+
+                <h3>Personal info</h3>
+
+                <div class="form-group col-md-8 mb-1">
+                    <label for="validationDefault01">User Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="User Name" formControlName="userName"
+                            required>
+                    </div>
+                </div>
+                <!-- <div class="form-group col-md-8 mb-1">
+                    <label for="validationDefault01">Job Title</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="Job Title" formControlName="JobTitle"
+                            required>
+                    </div>
+                </div> -->
+                <div class="form-group col-md-8 mb-1">
+                    <label for="validationDefault01">Description</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="Description" formControlName="Description"
+                            required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label class="form-label" for="phone">Phone number</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-phone"></i></span>
+                        <input type="tel" class="form-control" name="phone" type="text"
+                            placeholder="Enter your phone number" aria-describedby="inputGroupPrepend2"
+                            formControlName="PhoneNumber" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1 ">
+                    <label for="validationDefault03">City</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-location-dot"></i></span>
+                        <input type="text" class="form-control" placeholder="City" formControlName="city" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-envelope"></i></span>
+                        <input type="email" class="form-control" placeholder="Enter email"
+                            formControlName="emailAddress">
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label class="form-label" for="phone">Tax Register</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-file-lines"></i></span>
+                        <input type="tel" class="form-control" name="number" type="text" placeholder="Tax Register"
+                            aria-describedby="inputGroupPrepend2" formControlName="taxRegister" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label for="exampleInputPassword1">Current Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="Password"
+                            formControlName="currentPassword">
+                    </div>
+                </div>
+                <div class="form-group col-md-8 mb-1">
+                    <label for="exampleInputPassword1">New Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text "><i class="fa fa-solid fa-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="Password"
+                            formControlName="newPassword">
+                    </div>
+                </div>
+                <div class="">
+
+                    <button class="Primary-btn col-md-8 mb-2 bg-success text-light" type="submit">Update Info.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</form>
+

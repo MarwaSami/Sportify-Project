@@ -1,0 +1,8 @@
+.Review{
+  background-color: white;
+  color: var(--Primary-Dark-Color);
+}
+.title{
+  color: white;
+  margin-left: 15%;
+}

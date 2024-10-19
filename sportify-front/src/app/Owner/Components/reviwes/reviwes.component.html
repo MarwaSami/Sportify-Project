@@ -1,0 +1,78 @@
+<h1>Reviews</h1>
+<div class="row text-center">
+    <div class="col-6">
+        <h6>Total Reviews</h6>
+        <div class="row">
+            <p class="col-12 fw-bold fs-3">{{TotalCount}}</p>
+        </div>
+    </div>
+    <div class="col-6">
+        <h6>Average Rating</h6>
+        <div class="row">
+            <p class="fw-bold fs-3">{{TotalRate}}</p>
+            <app-rating [Value]="TotalRate"></app-rating>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="dropdown" >
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Places
+            </button>
+            <ul class="dropdown-menu">
+                <li ><a  class="dropdown-item disabled">Choose One Place To Get Its Reviews </a></li>
+                <li><a *ngFor="let p of places" class="dropdown-item" (click)="ChangePlace(p.id)" >{{p.name}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div *ngFor="let r of reviews" class="row pt-5 pb-5">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-3 border-light">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://localhost:59528/Images/{{r.userImg}}" style="height: 100%;"
+                        class="img-fluid rounded-start" alt="img">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{r.userName}}</h5>
+                        <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+                            quas, optio nesciunt quasi nisi ex,
+                            deleniti eligendi aliquam?</p> -->
+                        <!-- <p class="card-text"><small class="text-muted">{{r.date}}</small></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-sm-12">
+        <div class="row">
+            <div class="col-lg-9 mt-1">
+                <app-rating [Value]="r.rateValue"></app-rating>
+            </div>
+            <p class="text-secondary">{{r.ratemsg}}
+            </p>
+            <div class=" btn-group" role="group">
+                <!-- <div class="m-2">
+                    <button type="button" class="btn bg-light">
+                        Public Comment
+                    </button>
+                </div>
+                <div class="m-2">
+                    <button type="button" class="btn bg-light ml-5">
+                        Show message
+                    </button>
+                </div> -->
+                <!-- <div *ngIf="r.like" class="m-2">
+                    <button type="button" class="btn bg-light">
+                        <i class="fa fa-heart text-danger"></i>
+                    </button>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr>

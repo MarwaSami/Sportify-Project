@@ -1,0 +1,29 @@
+<div class="display-1">Add Blogs</div>
+<form (ngSubmit)="onSubmit()" #blogForm="ngForm">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="Title" class="form-control" [(ngModel)]="blog.title" required>
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select id="category" name="Category" class="form-control" [(ngModel)]="blog.id" required>
+      <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea id="content" name="Content" class="form-control" [(ngModel)]="blog.content" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="tags">Tags</label>
+    <input type="text" id="tags" name="tags" class="form-control" [(ngModel)]="blog.tags" required>
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <div class="custom-file">
+      <input type="file" #file class="custom-file-input" (change)="onImageChange(file)" accept="image/*" required>
+    </div>
+  </div>
+
+  <button style="background-color: var(--warning);" type="submit" class="btn m-2">Submit</button>
+</form>

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title></h1>
+<div mat-dialog-content>
+  <p>Add Booking For Tainer on {{data.date}}</p>
+  <mat-form-field>
+    <mat-label>StartTime</mat-label>
+    <input matInput [(ngModel)]="data.StartTime" type="time" min="{{data.StartTime}}" max="{{data.EndTime}}" (change)="changePrice()">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>End Time</mat-label>
+    <input matInput  type="time" [(ngModel)]="data.EndTime"  min="{{data.StartTime}}" max="{{data.EndTime}}" (change)="changePrice()">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Total Price</mat-label>
+    <input matInput  [(ngModel)]="data.TotalPrice" type="number" min="{{data.TotalPrice}}">
+  </mat-form-field>
+  <br>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Send</button>
+</div>

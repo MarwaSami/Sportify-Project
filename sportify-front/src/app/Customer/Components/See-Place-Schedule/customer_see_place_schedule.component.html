@@ -1,0 +1,136 @@
+<div class="custom_container m-auto mt-4 ">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>{{place.name}}</h1>
+      <h5>Owner Name : {{place.ownerName}}</h5>
+      <div class="card mb-3 mt-3">
+        <a class="card-body" routerLink="/Customer/Booking">
+          <h2 style="text-align: center;" class="card-title">BOOK NOW</h2>
+        </a>
+        <div class="mt-3 me-2 placeSchedule">
+          <div class="placeScheduleHead">
+            <div *ngFor="let item of placeSchedula">
+              <div class="schedule-head text-center">
+                <div class="card-body">
+                  <h5 class="fw-bold mt-3 ">{{item.dayofWeek}}</h5>
+                  <h5>{{item.date}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="placeScheduleData">
+            <div *ngFor="let item of placeSchedula">
+              <div *ngIf="item.isWorking" class="schedule-items">
+                <div *ngFor="let item2 of item.schedule" class="p-1">
+                  <div
+                    [ngClass]="{'disabled': item2.status == 0,'available':item2.status == 1,'samiAvaailable':item2.status==2}"
+                    class="card text-center">
+                    <a (click)="NavigateToBooking(item2,item)" style="transition: background-color .2s linear;"
+                      class="btn">
+                      <div class="card-body  pt-2 pb-2 ">
+                        <h5 class="schedule-text">Period:{{item2.period}}</h5>
+                        <h5 class="schedule-text">Capacity:{{item2.capacity}}</h5>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!item.isWorking" class="NoWork p-4 mt-4">
+                <h3>This Day is Free from working</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card pb-3  mt-3">
+          <div class="card-body ">
+            <h2 class="card-title">Location and Working Hours.</h2>
+
+            <div id="map" style="margin: 10px; height: 50vh;"></div>
+            <h5 class="mt-2" style="margin: 5px;"><i class='fa-solid fa-location-dot'></i> {{place.address}}
+            </h5>
+            <hr style="width: 80%; margin: auto; margin:25px auto;">
+            <div id="wh" class="d-lg-flex flex-wrap justify-content-between ms-3 me-3">
+              <h2 class="mt-4 ms-2">Working Hours</h2>
+
+              <!-- <h5 class="mt-2" *ngFor="let item of place.workingHours">{{item.day}} from {{item.startTime|date:'shortTime'}} to {{item.endTime |date:'shortTime'}}</h5> -->
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of place.workingHours">
+                    <td>{{item.day}}</td>
+                    <td *ngIf="item.startTime==item.endTime" style="padding-left: 10%;color:green;font-size: larger;">This day is free</td>
+                    <td *ngIf="item.startTime==item.endTime"></td>
+                    <td *ngIf="item.startTime!=item.endTime">{{item.startTime|date:'shortTime'}}</td>
+                    <td *ngIf="item.startTime!=item.endTime">{{item.endTime |date:'shortTime'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card-body">
+            <h2 class="card-title">Description</h2>
+            <div style="padding: 10px;">
+              <h5>{{place.description}}</h5>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+  <div class="col-md-4 ps-md-4">
+    <div class="card mb-3">
+      <div class="card-body-L">
+        <h4 class="card-title">Place Type {{place.category}}</h4>
+        <div class="d-flex gap-2" style="padding: 10px;">
+          <!-- <button *ngFor="let item of placeType let x = index" class="btn  Primary-button"
+            style="height: fit-content; width: fit-content; font-size: 0.7rem; padding: 5px;"><a
+              (click)="changePlaceCat(x)">{{item.type}}</a></button> -->
+        </div>
+        <div class="facilities" style="padding: 10px;">
+          <h4>Facilities</h4>
+          <div style="flex-wrap: wrap;" class="d-flex gap-3 mt-3 w-100">
+            <h5 *ngFor="let item of place.facilities"><i class="fa-solid fa-check">
+              </i> {{item}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body-L">
+        <h4 class="card-title"><i class='fas fa-location-arrow'></i> Address</h4>
+        <div style="padding: 10px;" class="d-flex flex-column gap-2">
+          <h5> {{place.address}}</h5>
+          <a> <button class="btn mt-2  Primary-button" style="width: 100%; font-size: small;">View on
+              map</button> </a>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body-L">
+          <h4 class="card-title"><i class='fa-solid fa-map-location'></i> Discover more pitches</h4>
+           <!-- <a href="#" class="container row" style="padding: 10px; ">
+              <img class="col-md-5" src="../assets/images/ownerSchedule/image1.jpg" alt="">
+              <div class="col-md-7">
+                  <h5>Provider name</h5>
+                  <h5>city</h5>
+                  <hr>
+                  <h5 style="color: #1DB233;"><i class='fa-solid fa-location-dot'></i>
+                      1.4 Km Away</h5>
+              </div>
+          </a> -->
+                 <img src="../../../../assets/images/comingsoon.png" alt="">
+      </div>
+  </div>
+  </div>
+  </div>
+</div>
+

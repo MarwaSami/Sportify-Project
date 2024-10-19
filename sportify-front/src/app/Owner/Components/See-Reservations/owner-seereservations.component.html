@@ -1,0 +1,164 @@
+<div class="bottom-data">
+  <div class="orders">
+    <div class="header"></div>
+    <h1>Reservations</h1>
+    <div class="d-flex justify-content-between align-items-center">
+    </div>
+    <div class="filter-container" style="background-color: var(--light);">
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="priceFilter" class="filter-label">Place:</label>
+            <input type="text" class="form-control" id="placeFilter" #place value="">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="priceFilter" class="filter-label">Price:</label>
+            <input type="number" class="form-control" id="priceFilter" #price value="0">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="priceFilter" class="filter-label">ReservationDate</label>
+            <input type="date" [(ngModel)]="userFilter.date" class="form-control" id="priceFilter" #date>
+          </div>
+        </div>
+        <div class="col-md-4 mt-4">
+          <button style="background-color: var(--success);" class="btn " id="applyFilterBtn"
+            (click)="filterReservations(place,date,price)">Apply
+            Filter</button>
+          <button style="background-color: var(--warning);" class="btn " (click)="resetFilter()"
+            id="resetFilterBtn">Reset</button>
+          <!-- <button style="background-color: var(--success);" class="btn" (click)="showAddReservationForm()">Add
+            Reservation</button> -->
+        </div>
+        <div class="col-md-4 ">
+
+          <label class="filter-label">Status:</label>
+          <form class="form-check status-f d-flex gap-5">
+            <div>
+              <input name="statusFilter" id="0" class="form-check-input status-checkbox" type="radio">
+              <label class="form-check-label status-checkbox-label" checked>
+                Pending
+              </label>
+            </div>
+            <div>
+              <input name="statusFilter" id="1" class="form-check-input status-checkbox" type="radio">
+              <label class="form-check-label status-checkbox-label">
+                Confirmed
+              </label>
+            </div>
+            <div>
+              <input name="statusFilter" id="2" class="form-check-input status-checkbox" type="radio">
+              <label class="form-check-label status-checkbox-label">
+                Completed
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showAddForm">
+      <h2>Add Reservation</h2>
+      <form [formGroup]="reservationForm" (submit)="addReservation()">
+        <div class="form-group">
+          <label for="priceFilter" class="filter-label">Place:</label>
+          <input type="number" class="form-control" id="priceFilter" [(ngModel)]="placeFilter" formControlName="Place">
+          <div style="color: red;"
+            *ngIf="reservationForm.get('place').hasError('required') && reservationForm.get('place').touched">
+            Place is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reservationDate">Reservation Date:</label>
+          <input type="date" class="form-control" id="reservationDate" name="ReservationDate"
+            formControlName="reservationDate">
+          <div style="color: red;"
+            *ngIf="reservationForm.get('reservationDate').hasError('required') && reservationForm.get('reservationDate').touched">
+            Reservation Date is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" class="form-control" id="price" name="price" formControlName="Price">
+          <div style="color: red;"
+            *ngIf="reservationForm.get('price').hasError('required') && reservationForm.get('price').touched">
+            Price is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price">StartTime:</label>
+          <input type="number" class="form-control" id="price" name="price" formControlName="Price">
+          <div style="color: red;"
+            *ngIf="reservationForm.get('price').hasError('required') && reservationForm.get('price').touched">
+            Price is required.
+          </div>
+        </div>
+        <button style="margin:20px 0;  background-color: var(--success);" class="btn" type="submit"
+          [disabled]="!reservationForm.valid">Save Reservation</button>
+      </form>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Place</th>
+            <th>Booking Date</th>
+            <th>From : To</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody *ngIf="boolea" id="reservationTableBody">
+
+          <tr *ngFor="let reservation of reservations | paginate: { itemsPerPage: PageSize, currentPage: PageIndex ,totalItems:count}">
+            <td>
+              <p>{{reservation.userName}}</p>
+            </td>
+            <td>{{reservation.placeName}}</td>
+            <td>{{reservation.reservationDate}}</td>
+            <td>{{reservation.startTime}} : {{reservation.endTime}}</td>
+            <td>{{reservation.totalPrice}}</td>
+            <td>{{reservation.count}}</td>
+            <td>{{reservation.status==0?"Pending":(reservation.status==1)?"Confimed":"Completed"}}
+            </td>
+            <td>
+              <button *ngIf="reservation.status==0" (click)="confirmBooking(reservation)"
+                class="status completed  border-0  btn-confirm">Confirm</button>
+              <button *ngIf="reservation.status==1" (click)="completeBooking(reservation)"
+                class="status pending  border-0  btn-reject">Complete</button>
+            </td>
+          </tr>
+
+        </tbody>
+        <pagination-controls (pageChange)="changPage($event)"></pagination-controls>
+        <!-- <tbody *ngIf="boolea == false" id="reservationTableBody">
+          <tr *ngFor="let reservation of filteredReservations">
+            <td>
+              <p>{{reservation.user}}</p>
+            </td>
+            <td>{{reservation.place}}</td>
+            <td>{{reservation.reservationDate}}</td>
+            <td>{{reservation.from}}</td>
+            <td>{{reservation.to}}</td>
+            <td>{{reservation.price}}</td>
+            <td>{{reservation.status}}</td>
+            <td>
+            <button *ngIf="reservation.status == 'pending' "
+                class="status completed  border-0  btn-confirm">Confirm</button>
+              <button *ngIf="reservation.status === 'pending' "
+                class="status pending  border-0  btn-reject">Reject</button>
+            </td>
+          </tr>
+
+        </tbody> -->
+      </table>
+    </div>
+  </div>
+</div>

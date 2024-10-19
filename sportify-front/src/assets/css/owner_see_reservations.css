@@ -1,0 +1,36 @@
+.filter-container {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+} 
+
+.filter-label {
+    font-weight: bold;
+}
+
+.status-checkbox-label {
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+@media (max-width: 800px) {
+    table thead {
+        display: none;
+    }
+
+    table tbody tr td {
+        display: block;
+        text-align: left;
+        padding: 10px;
+
+    }
+
+    table tbody tr td:last-child {
+        border-bottom: 1px dashed #388E3C;
+    }
+
+
+}

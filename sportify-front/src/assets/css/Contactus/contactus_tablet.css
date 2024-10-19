@@ -1,0 +1,9 @@
+@media (max-width:768px){
+    .contact-us-text small{
+        padding-left: 5%;
+    }
+    .contact-us-text button{
+        margin-left: 15%;
+        margin-bottom: 4vh;
+    }
+}

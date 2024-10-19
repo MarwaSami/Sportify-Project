@@ -1,0 +1,55 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()"
+    class="form col-form-label  d-flex align-items-center justify-content-center flex-column">
+    <div>
+        <img id="logoSignup" src="../../assets/images/logo.png" alt="">
+    </div>
+    <!-- <div class="d-flex">
+        <button type="button" class="Second-button" [class.selected]="selectedRole === 'Customer'" (click)="selectRole('Customer')">Customer</button>
+        <button type="button" class="Second-button" [class.selected]="selectedRole === 'Owner'" (click)="selectRole('Owner')">Place Owner</button>
+        <button type="button" class="Second-button" [class.selected]="selectedRole === 'Trainer'" (click)="selectRole('Trainer')">Trainer</button>
+    </div> -->
+    <div class="btn-group" role="group" aria-label="Role selection">
+        <button type="button" class="btn Second-button" [class.active]="selectedRole === 'Customer'" (click)="selectRole('Customer')">Customer</button>
+        <button type="button" class="btn Second-button" [class.active]="selectedRole === 'Owner'" (click)="selectRole('Owner')">Owner</button>
+        <button type="button" class="btn Second-button" [class.active]="selectedRole === 'Trainer'" (click)="selectRole('Trainer')">Trainer</button>
+       </div>
+    <div class="form-group col-md-4 mb-1">
+        <label for="validationDefault01">User Name</label>
+        <div class="input-group">
+            <span class="input-group-text "><i class="fa fa-solid fa-user"></i></span>
+            <input type="text" class="form-control" placeholder="User Name" formControlName="UserName" required>
+        </div>
+    </div>
+    <div class="form-group col-md-4 mb-1">
+        <label class="form-label" for="phone">Phone number</label>
+        <div class="input-group">
+            <span class="input-group-text "><i class="fa fa-solid fa-phone"></i></span>
+            <input type="tel" class="form-control" id="phone" name="phone" type="text"
+                placeholder="Enter your phone number" formControlName="PhoneNumber"
+                aria-describedby="inputGroupPrepend2" required>
+        </div>
+    </div>
+    <div class="form-group col-md-4 mb-1 ">
+        <label for="validationDefault03">City</label>
+        <div class="input-group">
+            <span class="input-group-text "><i class="fa fa-solid fa-location-dot"></i></span>
+            <input type="text" class="form-control" placeholder="City" required formControlName="City">
+        </div>
+    </div>
+    <div class="form-group col-md-4 mb-1">
+        <label for="exampleInputEmail1">Email address</label>
+        <div class="input-group">
+            <span class="input-group-text "><i class="fa fa-envelope"></i></span>
+            <input type="email" class="form-control" formControlName="Email" placeholder="Enter email">
+        </div>
+    </div>
+    <div class="form-group col-md-4 mb-1">
+        <label for="exampleInputPassword1">Password</label>
+        <div class="input-group">
+            <span class="input-group-text "><i class="fa fa-solid fa-lock"></i></span>
+            <input type="password" class="form-control" formControlName="Password" placeholder="Password">
+        </div>
+    </div>
+    <button class="Primary-btn form-group col-md-4 mb-1 bg-success text-light" type="submit" [disabled]="signupForm.invalid">SIGN UP</button>
+</form>
+

@@ -1,0 +1,83 @@
+<nav class="shadow-sm">
+  <div class="logo">
+    <a routerLink=""> <img src="./assets/images/logolast.png" alt /></a>
+  </div>
+  <div class="nav-links">
+    <ul class="links">
+      <li class="last2"><a routerLink="/Customer/PFilter">Services</a></li>
+      <li class="last2"><a routerLink="/Customer/TFilter">Trainer</a></li>
+      <li class="last2"><a routerLink="/Customer/Blogs">Blogs</a></li>
+      <li class="last"><a routerLink="/Customer/contactus">Contact Us</a></li>
+      <li class="last"><a routerLink="/Customer/aboutus">About Us</a></li>
+    </ul>
+  </div>
+  <div class="buttons" *ngIf="currentUser == null">
+    <button class="Primary-button" (click)="navTosignin()">Sign in</button>
+    <button class="Second-button" (click)="navTosignup()">Sign Up</button>
+  </div>
+  <a
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasRight"
+    aria-controls="offcanvasRight"
+    ><i id="menu" class="fa-solid fa-bars"></i>
+  </a>
+
+  <div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    <div class="offcanvas-header">
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="menu-links">
+        <li><a routerLink="/Customer/PFilter">Services</a></li>
+        <li><a routerLink="/Customer/TFilter">Trainer</a></li>
+        <li><a routerLink="/Customer/Blogs">Blogs</a></li>
+        <li><a routerLink="/Customer/contactus">Contact Us</a></li>
+        <li><a routerLink="/Customer/aboutus">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="dropdown" *ngIf="currentUser != null">
+    <a class="bar" data-bs-toggle="dropdown">
+      <i class="fa fa-xl fa-user" style="color: #000000"></i>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a
+        class="dropdown-item"
+        *ngIf="currentUser.role == 0"
+        routerLink="/Admin"
+        >Dashboard
+      </a>
+        <a
+          class="dropdown-item"
+          *ngIf="currentUser.role == 1"
+          routerLink="/Customer/Profile"
+          >Profile
+        </a>
+        <a
+        class="dropdown-item"
+        *ngIf="currentUser.role == 2"
+        routerLink="/Owner"
+        >Dashboard
+      </a>
+      <a
+      class="dropdown-item"
+      *ngIf="currentUser.role == 3"
+      routerLink="/Trainer"
+      >Dashboard
+    </a>
+      </li>
+      <li><a class="dropdown-item" (click)="logout()">logout</a></li>
+    </ul>
+  </div>
+</nav>

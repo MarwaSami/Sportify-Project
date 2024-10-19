@@ -1,0 +1,183 @@
+<div class="hero-container fiter-container">
+  <section class="hero">
+    <div class="filter-search">
+      <div class="filter-search-inputs">
+        <div class="input-group flex-nowrap">
+          <input type="text" class="form-control" placeholder="Location"  #location>
+          <span class="input-group-text bg-transparent" id="addon-wrapping"><i class="fa-solid fa-location-dot fa-lg"
+              style="color:var(--Primary-Dark-Color);"></i></span>
+        </div>
+        <div class="input-group flex-nowrap">
+          <!-- <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-calendar-days" style="color:var(--Primary-Dark-Color);"></i></span> -->
+          <input type="datetime-local" class="form-control" min="1" #datetime>
+        </div>
+        <div class="input-group flex-nowrap">
+          <select class="form-select custom-select-icon"  #CategoryID>
+            <option  value="all" selected>Sport</option>
+            <option [value]="elem.id" *ngFor="let elem of cats">{{elem.name}}</option>
+          </select>
+        </div>
+      </div>
+      <button class="search-logo" (click)="searchbylocationordatetimeorcateid(location,datetime,CategoryID)">
+        <img src="../assets/images/customerFilter/search.png" alt="" srcset="">
+      </button>
+
+    </div>
+  </section>
+</div>
+<div class="fiter-container">
+  <main>
+    <section style="height: fit-content;" class="filter">
+      <div class="filter-item">
+        <h3>Sport <i class="fa-solid fa-person-walking" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check" *ngFor="let elem of cats ">
+          <input #selectedValue2 type="checkbox" [value]="elem.id" class="form-check-input"
+            (click)="FilteredTrainersByCat($event.target.checked,selectedValue2.value)">
+          <label for="" class="form-check-label">{{elem.name}}</label>
+        </div>
+      </div>
+      <div class="filter-item">
+        <h3>Location <i class="fa-solid fa-map-location-dot" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check" *ngFor="let gov of govArray">
+          <input #selectedValue3 [value]="gov" type="checkbox" class="form-check-input"
+            (click)="FilteredTrainersByGov($event.target.checked,selectedValue3.value)">
+          <label for="" class="form-check-label">{{gov}}</label>
+        </div>
+      </div>
+      <div class="filter-item">
+        <h3>Customer Rate<i class="fa-solid fa-star fa-2xs" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check">
+          <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,5)" class="form-check-input">
+          <label for="" class="form-check-label">5 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,4)" class="form-check-input">
+          <label for="" class="form-check-label">4 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,3)" class="form-check-input">
+          <label for="" class="form-check-label">3 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,2)" class="form-check-input">
+          <label for="" class="form-check-label">2 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,1)" class="form-check-input">
+          <label for="" class="form-check-label">1 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+      </div>
+      <div class="filter-item">
+        <h3>Surface <i class="fa-solid fa-person" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check">
+          <input type="checkbox" (click)="FilteredTrainersBySurface($event.target.checked,'1')"
+            class="form-check-input">
+          <label for="" class="form-check-label">Men</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" (click)="FilteredTrainersBySurface($event.target.checked,'2')"
+            class="form-check-input">
+          <label for="" class="form-check-label">Ladies</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" (click)="FilteredTrainersBySurface($event.target.checked,'3')"
+            class="form-check-input">
+          <label for="" class="form-check-label">Both</label>
+        </div>
+      </div>
+    </section>
+    <div class="mobile-collapse  d-none ">
+      <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+        aria-expanded="false" aria-controls="collapseExample">
+        <i class="fa-solid fa-bars fa-2xl" style="color:var(--Primary-Dark-Color);"></i>
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="filter-item">
+          <h3>Sport <i class="fa-solid fa-person-walking" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check" *ngFor="let elem of cats ">
+            <input #selectedValue2 type="checkbox" [value]="elem" class="form-check-input"
+              (click)="FilteredTrainersByCat($event.target.checked,selectedValue2.value)">
+            <label for="" class="form-check-label">{{elem}}</label>
+          </div>
+        </div>
+        <div class="filter-item">
+          <h3>Location <i class="fa-solid fa-map-location-dot" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check" *ngFor="let gov of govArray">
+            <input #selectedValue3 [value]="gov" type="checkbox" class="form-check-input"
+              (click)="FilteredTrainersByGov($event.target.checked,selectedValue3.value)">
+            <label for="" class="form-check-label">{{gov}}</label>
+          </div>
+        </div>
+        <div class="filter-item">
+          <h3>Customer Rate<i class="fa-solid fa-star fa-2xs" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check">
+            <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,5)" class="form-check-input">
+            <label for="" class="form-check-label">5 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,4)" class="form-check-input">
+            <label for="" class="form-check-label">4 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,3)" class="form-check-input">
+            <label for="" class="form-check-label">3 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,2)" class="form-check-input">
+            <label for="" class="form-check-label">2 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" (click)="FilteredTrainersByRate($event.target.checked,1)" class="form-check-input">
+            <label for="" class="form-check-label">1 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+        </div>
+        <div class="filter-item">
+          <h3>Surface <i class="fa-solid fa-person" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check">
+            <input type="checkbox" (click)="FilteredTrainersBySurface($event.target.checked,'Males')"
+              class="form-check-input">
+            <label for="" class="form-check-label">Men</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" (click)="FilteredTrainersBySurface($event.target.checked,'Females')"
+              class="form-check-input">
+            <label for="" class="form-check-label">Ladies</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section style="height: fit-content;" class="playgrounds">
+      <div class="filter-card" *ngFor="let Trainer of data | paginate: { itemsPerPage: pageSize, currentPage: pageIndex ,totalItems:count}" style="height: fit-content;" class="d-flex gap-2 filter-card ">
+        <img class="image" style="border-radius: 8px; " class="col-6" src="https://localhost:59528/Images/{{Trainer.image}}" alt="">
+        <div class="text">
+          <h3>{{Trainer.userName}}</h3>
+          <h3>{{Trainer.categoryName}}</h3>
+          <h3>Price/Session : {{Trainer.pricePerSession}}EGP</h3>
+          <hr>
+          <h3>Location :</h3>
+          <p style="margin: 0;">{{Trainer.adress}}</p>
+
+          <div class="d-flex gap-2">
+            <div style="padding: 4px; border-radius: 8px; background-color: var(--Secondary-dark-color)"
+              *ngFor="let sur of Trainer.surface">{{sur}}</div>
+          </div>
+          <!-- <button value="View Details" [id]="Trainer.id" (click)="showdetails($event)" style="background-color: var(--Primary-lighter-color);"
+            class="btn mt-2 w-100">Book Now</button> -->
+            <a value="View Details" routerLink="/Customer/TrainerSchedule/{{Trainer.id}}"  style="background-color: var(--Primary-lighter-color);"
+            class="btn mt-2 w-100">Book Now</a>
+        </div>
+      </div>
+    </section>
+    <pagination-controls (pageChange)="changPage($event)"></pagination-controls>
+    </main>
+</div>

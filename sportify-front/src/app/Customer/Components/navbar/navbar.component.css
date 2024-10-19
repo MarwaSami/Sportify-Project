@@ -1,0 +1,241 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  /* position: fixed; */
+  z-index: 999;
+  background-color: var(--background-color);
+}
+
+.buttons {
+  display: flex;
+
+}
+
+.Primary-button {
+  width: 110px !important;
+}
+
+.Second-button {
+  width: 110px !important;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.links li {
+  margin: 20px 7px 7px 7px;
+  padding: 7px 7px;
+}
+
+.links li a {
+  color: var(--Primary-Dark-Color);
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-head3);
+
+}
+
+.links li a:hover {
+  color: var(--Primary-lighter-color);
+}
+
+.links li {
+  position: relative;
+
+
+}
+
+.links li::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  left: 10px;
+  margin-top: 35px;
+  background-color: #10772A;
+  transition: all .6s;
+}
+
+.links li:hover::after {
+  width: 50px;
+}
+
+.last {
+  display: block;
+}
+
+.last2 {
+  display: block;
+}
+
+.logo {
+  width: 16%;
+  padding: 0px 0px 10px 0px;
+}
+
+.logo img {
+  width: 100%;
+  background-color: white;
+}
+
+.Primary-button {
+  margin-right: 10px;
+}
+
+#menu {
+  display: none;
+}
+
+@media screen and (max-width:570px) {
+  #menu {
+    display: block;
+    font-size: 25px;
+    color: var(--Primary-lighter-color);
+    cursor: pointer;
+  }
+
+  .menu-links {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .menu-links li a {
+    font-size: 20px;
+    color: var(--Primary-Dark-Color);
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .offcanvas-header {
+    background-color: var(--Secondary-yellow-color);
+  }
+
+  .offcanvas-body {
+    background-color: var(--Secondary-yellow-color);
+  }
+
+  .menu-links li a:hover {
+    color: var(--Primary-lighter-color);
+  }
+
+  .last {
+    display: none;
+  }
+
+  .last2 {
+    display: none;
+  }
+
+  nav {
+    height: 12vh;
+  }
+
+  .logo {
+    width: 30% !important;
+    margin-left: 5px !important;
+  }
+
+  .Primary-button {
+    font-size: 10px !important;
+    width: 70px !important;
+    height: 35px;
+    position: relative;
+    right: 20px !important;
+  }
+
+  .Second-button {
+    width: 70px !important;
+    font-size: 10px !important;
+    height: 35px;
+    position: relative;
+    right: 20px;
+  }
+
+  nav .dropdown {
+    display: block !important;
+  }
+
+  .dropdown i {
+    font-size: 30px;
+    color: black;
+  }
+
+  .dropdown i:hover {
+    color: #429453;
+  }
+
+  .dropdown-men {
+    width: 100% !important;
+
+  }
+
+  nav {
+    justify-content: space-around;
+  }
+
+
+}
+
+
+
+@media screen and (max-width:768px) {
+  .last {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .links {
+    padding-left: 0px !important;
+
+  }
+
+  .buttons {
+    position: relative;
+    left: 0px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .links li {
+    margin: 25px 7px 7px 7px;
+    padding: 10px 7px;
+  }
+
+  .logo {
+    padding: 0px 0px 10px 0px;
+    width: 18%;
+  }
+
+  .Primary-button {
+    font-size: 15px;
+    width: 100px;
+    margin-right: 10px;
+  }
+
+  .Second-button {
+    width: 100px;
+    font-size: 15px;
+
+  }
+}
+
+@media screen and (max-width:840px) {
+  .last {
+    display: none;
+  }
+
+}

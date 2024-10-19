@@ -1,0 +1,15 @@
+
+        <img
+          [src]="'https://localhost:59528/Images/'+Blog.imgUrl"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <!-- <p class="date">{{Blog.date|date}}</p> -->
+          <a routerLink="/Customer/blogs-details/{{Blog.id}}">
+            <h4 class="card-title">{{Blog.title}}</h4>
+          </a>
+          <p class="card-text">
+          {{(Blog.content.length>100)? (Blog.content|slice:0:100) + ' .....':(Blog.content)}}
+          </p>
+

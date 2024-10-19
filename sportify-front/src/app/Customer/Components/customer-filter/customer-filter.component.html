@@ -1,0 +1,294 @@
+<div class="hero-container fiter-container">
+  <section class="hero">
+    <div class="filter-search">
+      <div class="filter-search-inputs">
+        <div class="input-group flex-nowrap">
+          <input type="text" class="form-control" placeholder="Location"  #location>
+          <span class="input-group-text bg-transparent" id="addon-wrapping"><i class="fa-solid fa-location-dot fa-lg"
+              style="color:var(--Primary-Dark-Color);"></i></span>
+        </div>
+        <div class="input-group flex-nowrap">
+          <!-- <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-calendar-days" style="color:var(--Primary-Dark-Color);"></i></span> -->
+          <input type="datetime-local" class="form-control" min="1" #datetime>
+        </div>
+        <div class="input-group flex-nowrap">
+          <select class="form-select custom-select-icon"  #CategoryID>
+            <option  value="all" selected>Sport</option>
+            <option [value]="elem.id" *ngFor="let elem of categories">{{elem.name}}</option>
+          </select>
+        </div>
+      </div>
+      <button class="search-logo" (click)="searchbylocationordatetimeorcateid(location,datetime,CategoryID)">
+        <img src="../assets/images/customerFilter/search.png" alt="" srcset="">
+      </button>
+
+    </div>
+  </section>
+</div>
+<div class="fiter-container">
+  <main>
+    <!-- Filter  At lg and m scale  -->
+    <section class="filter">
+      <div class="filter-item Location">
+        <h3>GET Places <br> Near You <i class="fa-solid fa-person-walking"
+            style="color:var(--Primary-Dark-Color);"></i></h3>
+        <button class="btn" (click)="getlocation()"><i class="fa-solid fa-location-crosshairs"></i> Current Location</button>
+      </div>
+      <div class="filter-item">
+        <h3>Sport <i class="fa-solid fa-person-walking" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check">
+          <input type="checkbox" id="all" class="form-check-input" (change)="filterbycategory($event,temp)">
+          <label for="" class="form-check-label">All</label>
+        </div>
+        <div class="form-check" *ngFor="let elem of categories">
+          <input type="checkbox" [id]="elem.id" class="form-check-input" (change)="filterbycategory($event,temp)">
+          <label for="" class="form-check-label">{{elem.name}}</label>
+        </div>
+      </div>
+      <div class="filter-item">
+        <h3>Location <i class="fa-solid fa-map-location-dot" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check" *ngFor="let city of cities">
+          <input type="checkbox" class="form-check-input" [id]="city" (change)="filterbycity($event,temp)">
+          <label for="" class="form-check-label">{{city}}</label>
+        </div>
+      </div>
+         <!-- Radius
+      <div class="filter-item">
+        <h3>radius <i class="fa-solid fa-location-dot" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check">
+          <input type="radio"  id="1" class="form-check-input" (change)="filterbydistance($event)">
+          <label for="" class="form-check-label">1-mile away</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="radius" id="2" class="form-check-input" (change)="filterbydistance($event)">
+          <label for="" class="form-check-label">2-mile away</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="radius" id="3" class="form-check-input" (change)="filterbydistance($event)">
+          <label for="" class="form-check-label">3-mile away</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="radius" id="4" class="form-check-input" (change)="filterbydistance($event)">
+          <label for="" class="form-check-label">4-mile away</label>
+        </div>
+      </div> -->
+      <div class="filter-item">
+        <h3>Number  <i class="fa-solid fa-person" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check" *ngFor="let number of numbers">
+          <input type="checkbox"  [id]="number" class="form-check-input" (change)="filterbyNumber($event)">
+          <label  class="form-check-label">{{number}}</label>
+        </div>
+      </div>
+      <div class="filter-item">
+        <h3>Surface <i class="fa-solid fa-person" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check">
+          <input type="checkbox" id="1" class="form-check-input" (change)="filterbySurface($event)">
+          <label for="" class="form-check-label">Men</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox"  id="2" class="form-check-input" (change)="filterbySurface($event)" >
+          <label for="" class="form-check-label">Ladies</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="3" class="form-check-input" (change)="filterbySurface($event)">
+          <label for="" class="form-check-label">Both</label>
+        </div>
+      </div>
+      <div class="filter-item">
+        <h3>Facilities <i class="fa-solid fa-shower" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check"     *ngFor="let elem of facilities">
+          <input type="checkbox"  [id]="elem.id" class="form-check-input" (change)="filterbyfacilites($event)">
+          <label for="" class="form-check-label">{{elem.name}}</label>
+        </div>
+      </div>
+      <!-- Remain customer rate  -->
+      <div class="filter-item">
+        <h3>Customer Rate<i class="fa-solid fa-star fa-2xs" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check">
+          <input type="checkbox" id="5" class="form-check-input" (change)="filterbyreview($event)">
+          <label for="" class="form-check-label">5 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="4" class="form-check-input" (change)="filterbyreview($event)">
+          <label for="" class="form-check-label">4 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="3" class="form-check-input" (change)="filterbyreview($event)">
+          <label for="" class="form-check-label">3 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="2" class="form-check-input" (change)="filterbyreview($event)">
+          <label for="" class="form-check-label">2 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="1" class="form-check-input" (change)="filterbyreview($event)">
+          <label for="" class="form-check-label">1 <i class="fa-solid fa-star"
+              style="color:var(--Primary-Dark-Color);"></i></label>
+        </div>
+      </div>
+      <div class="filter-item">
+        <h3>Type<i class="fa-solid fa-cash-register" style="color:var(--Primary-Dark-Color);"></i></h3>
+        <div class="form-check">
+          <input type="checkbox"  id="1" class="form-check-input" (change)="filterbytype($event)">
+          <label for="" class="form-check-label">Public</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox"  id="2" class="form-check-input" (change)="filterbytype($event)">
+          <label for="" class="form-check-label">Private</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="3" class="form-check-input" (change)="filterbytype($event)">
+          <label for="" class="form-check-label">Both</label>
+        </div>
+      </div>
+    </section>
+     <!-- Filter  At  sm scale  -->
+  <div class="mobile-collapse  d-none ">
+    <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <i class="fa-solid fa-bars fa-2xl" style="color:var(--Primary-Dark-Color);"></i>
+    </button>
+    <div class="collapse" id="collapseExample">
+      <section class="filter">
+        <div class="filter-item Location">
+          <h3>GET Places <br> Near You <i class="fa-solid fa-person-walking"
+              style="color:var(--Primary-Dark-Color);"></i></h3>
+          <button class="btn" (click)="getlocation()"><i class="fa-solid fa-location-crosshairs"></i> Current Location</button>
+        </div>
+        <div class="filter-item">
+          <h3>Sport <i class="fa-solid fa-person-walking" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check">
+            <input type="checkbox" id="all" class="form-check-input" (change)="filterbycategory($event,temp)">
+            <label for="" class="form-check-label">All</label>
+          </div>
+          <div class="form-check" *ngFor="let elem of categories">
+            <input type="checkbox" [id]="elem.id" class="form-check-input" (change)="filterbycategory($event,temp)">
+            <label for="" class="form-check-label">{{elem.name}}</label>
+          </div>
+        </div>
+        <div class="filter-item">
+          <h3>Location <i class="fa-solid fa-map-location-dot" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check" *ngFor="let city of cities">
+            <input type="checkbox" class="form-check-input" [id]="city" (change)="filterbycity($event,temp)">
+            <label for="" class="form-check-label">{{city}}</label>
+          </div>
+        </div>
+          <!--  Radius  -->
+        <div class="filter-item">
+          <h3>radius <i class="fa-solid fa-location-dot" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check">
+            <input type="radio"  id="1" class="form-check-input" (change)="filterbydistance($event)">
+            <label for="" class="form-check-label">1-mile away</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="radius" id="2" class="form-check-input" (change)="filterbydistance($event)">
+            <label for="" class="form-check-label">2-mile away</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="radius" id="3" class="form-check-input" (change)="filterbydistance($event)">
+            <label for="" class="form-check-label">3-mile away</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="radius" id="4" class="form-check-input" (change)="filterbydistance($event)">
+            <label for="" class="form-check-label">4-mile away</label>
+          </div>
+        </div>
+        <div class="filter-item">
+          <h3>Number  <i class="fa-solid fa-person" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check" *ngFor="let number of numbers">
+            <input type="checkbox"  [id]="number" class="form-check-input" (change)="filterbyNumber($event)">
+            <label  class="form-check-label">{{number}}</label>
+          </div>
+        </div>
+        <div class="filter-item">
+          <h3>Surface <i class="fa-solid fa-person" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check">
+            <input type="checkbox" id="1" class="form-check-input" (change)="filterbySurface($event)">
+            <label for="" class="form-check-label">Men</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox"  id="2" class="form-check-input" (change)="filterbySurface($event)" >
+            <label for="" class="form-check-label">Ladies</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="3" class="form-check-input" (change)="filterbySurface($event)">
+            <label for="" class="form-check-label">Both</label>
+          </div>
+        </div>
+        <div class="filter-item">
+          <h3>Facilities <i class="fa-solid fa-shower" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check"     *ngFor="let elem of facilities">
+            <input type="checkbox"  [id]="elem.id" class="form-check-input" (change)="filterbyfacilites($event)">
+            <label for="" class="form-check-label">{{elem.name}}</label>
+          </div>
+        </div>
+        <!-- Remain customer rate  -->
+        <div class="filter-item">
+          <h3>Customer Rate<i class="fa-solid fa-star fa-2xs" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check">
+            <input type="checkbox" id="5" class="form-check-input" (change)="filterbyreview($event)">
+            <label for="" class="form-check-label">5 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="4" class="form-check-input" (change)="filterbyreview($event)">
+            <label for="" class="form-check-label">4 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="3" class="form-check-input" (change)="filterbyreview($event)">
+            <label for="" class="form-check-label">3 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="2" class="form-check-input" (change)="filterbyreview($event)">
+            <label for="" class="form-check-label">2 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="1" class="form-check-input" (change)="filterbyreview($event)">
+            <label for="" class="form-check-label">1 <i class="fa-solid fa-star"
+                style="color:var(--Primary-Dark-Color);"></i></label>
+          </div>
+        </div>
+        <div class="filter-item">
+          <h3>Type<i class="fa-solid fa-cash-register" style="color:var(--Primary-Dark-Color);"></i></h3>
+          <div class="form-check">
+            <input type="checkbox"  id="1" class="form-check-input" (change)="filterbytype($event)">
+            <label for="" class="form-check-label">Public</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox"  id="2" class="form-check-input" (change)="filterbytype($event)">
+            <label for="" class="form-check-label">Private</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="3" class="form-check-input" (change)="filterbytype($event)">
+            <label for="" class="form-check-label">Both</label>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+    <section class="playgrounds" #temp>
+    <app-filter-card [place]="place" *ngFor="let place of places | paginate: { itemsPerPage: pageSize, currentPage: pageIndex ,totalItems:count}"></app-filter-card>
+    <div *ngIf="count==0">
+      <div class="container">
+        <div class="card mt-5">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-12">
+                <h4>Looks like There is no places here </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <pagination-controls (pageChange)="changPage($event)"></pagination-controls>
+  </main>
+</div>

@@ -1,0 +1,74 @@
+<div class="body">
+  <div class="Blogs-container">
+    <!-- <div class="first-row">
+      <div class="main-card">
+        <div class="heading">
+          <div class="titles">
+            <p class="date">29 sep 2022</p>
+            <a href="">
+              <h2>10 Benefits of Playing Football</h2>
+            </a>
+          </div>
+          <img src="../../../../assets/images/footbal2.jpeg" alt="" />
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
+          perferendis est neque reiciendis modi rerum, doloremque quae quaerat
+          voluptatibus accusantium impedit magnam, inventore blanditiis ut
+          iusto. Tempora deserunt delectus distinctio! Lorem ipsum dolor sit
+          amet consectetur adipisicing elit. Suscipit, perferendis est neque
+          reiciendis modi rerum, doloremque quae quaerat voluptatibus
+          accusantium impedit magnam, inventore blanditiis ut iusto. Tempora
+          deserunt delectus distinctio! Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Suscipit, perferendis est neque reiciendis modi
+          rerum, doloremque quae quaerat voluptatibus accusantium impedit
+          magnam, inventore blanditiis ut iusto. Tempora deserunt delectus
+          distinctio!
+        </p>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img
+          src="../../../../assets/images/footbal3.jpeg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="date">29 sep 2022</p>
+          <a href="">
+            <h4 class="card-title">Cristiano Ronaldo latest News</h4>
+          </a>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img
+          src="../../../../assets/images/footbal.jpeg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="date">29 sep 2022</p>
+          <a href="">
+            <h4 class="card-title">The best footballer on earth</h4>
+          </a>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <div class="sec-row">
+      <div class="card" *ngFor="let blog of blogs | paginate: { itemsPerPage: pageSize, currentPage: pageIndex ,totalItems:count}"style="width: 18rem">
+        <app-blog [Blog]="blog"></app-blog>
+        </div>
+      </div>
+      <pagination-controls (pageChange)="changPage($event)"></pagination-controls>
+
+
+
+    </div>
+</div>

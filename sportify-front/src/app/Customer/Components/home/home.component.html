@@ -1,0 +1,454 @@
+<!-- <app-navbar></app-navbar> -->
+<section class="hero">
+  <div class="animated animatedFadeInUp fadeInUp">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <h1><span>Find</span> Your <span>Play</span></h1>
+        <p>Book Your Nearest and Best Sport Pitches and Courts</p>
+        <form [formGroup]="FilterForm" method="post" (ngSubmit)="ApplyFilter()">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01"><i class="fa-solid fa-person-running fa-bounce"
+                style="font-size: 20px"></i></label>
+            <select style="height: 50px" class="form-select" id="inputGroupSelect01" formControlName="CategoryID">
+              <option value="all" selected>Sport</option>
+              <option [value]="elem.id" *ngFor="let elem of categories">{{elem.name}}</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect04"><i class="fa-solid fa-location-dot fa-beat"
+                style="font-size: 20px"></i>
+            </label>
+
+            <input style="height: 50px" type="text" class="form-control" formControlName="Location"
+              placeholder="Select Your Location ..." />
+            <button class="btn btn-outline-secondary" type="button">
+              <i class="fa-solid fa-location-arrow" style="font-size: 20px !important"></i>
+            </button>
+          </div>
+          <div>
+            <span *ngIf="FilterForm.controls['Location'].hasError('required')&&FilterForm.controls['Location'].touched"
+              style="color: red;">
+              <i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i>
+              You must add an Location</span>
+          </div>
+          <div class="card-btn">
+            <button id="prim" class="Primary-button" [disabled]="FilterForm.invalid">Find Venue</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sub-header">
+  <div class="container">
+    <div class="break">
+      <div id="el1" class="element">
+        <i class="fa-solid fa-person-running"></i>
+        <p>Find Sports Facilities</p>
+      </div>
+      <i id="el1i" class="fa-solid fa-angles-right" style="color: white; font-size: 30px; margin-top: 10px"></i>
+      <div class="element">
+        <i class="fa-solid fa-calendar-days"></i>
+        <p>Book Online Your Favourit</p>
+      </div>
+      <i class="fa-solid fa-angles-right" id="ficon"></i>
+      <div class="element">
+        <i class="fa-solid fa-person-running"></i>
+        <p>Play your Game</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /////////////////////////About Us////////////// -->
+
+<section class="About-us">
+  <div class="container">
+    <div class="part">
+      <hr style="height: 2px; color: #1db233" />
+      <h4>ABOUT US</h4>
+    </div>
+    <div class="break-about">
+      <div class="text">
+        <h1>The Story Behined <span>OUR SPOTIFY</span></h1>
+        <p>
+          Sportify is an extensive online platform for booking all types of sports
+          where you may reserve at any time, select the best offer for you, and see how much time is left for you.Our
+          goal is to make it simpler for everyone...
+        </p>
+        <div class="checking">
+          <i class="fa-solid fa-check" style="color: #10772a"></i>
+          <p>users of our webiste can be transported to sporting venues</p>
+        </div>
+        <div class="checking">
+          <i class="fa-solid fa-check" style="color: #10772a"></i>
+          <p>Our goal is to make it simpler for everyone to participate</p>
+        </div>
+        <div class="checking">
+          <i class="fa-solid fa-check" style="color: #10772a"></i>
+          <p>We offer services that meet your requirements.</p>
+        </div>
+
+        <button id="about-button" class="Second-button" routerLink="/Customer/aboutus">Read More</button>
+      </div>
+      <div class="photos">
+        <div class="back-ground"></div>
+
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="height: 10vh">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="1000">
+              <img src="../../../../assets/images/category/soccor.webp" style="
+                  background-position: center;
+                  background-size: contain;
+                  height: 100% !important;
+                " class="d-block w-100 h-100" alt="..." />
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="../../../../assets/images/category/pexels-tennis.jpg" style="
+                  background-position: center;
+                  background-size: contain;
+                  height: 100% !important;
+                " class="d-block w-100 h-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="../../../../assets/images/basketball0slider.png"
+                style="background-position: center; background-size: contain" class="d-block w-100 h-100" alt="..." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="category">
+  <div class="container">
+    <div class="cate-text">
+      <h4>FIND PITCHES</h4>
+      <h1>OUR <span> CATEGORY</span></h1>
+    </div>
+    <div class="start-cate">
+      <div class="one">
+        <div class="columns">
+          <div class="card-category" style="background-color: #ECF39E; color: #10772A;">
+            <i class="fa-regular fa-futbol" style="text-align: center;"></i>
+            <p>{{categories[0].name}}</p>
+            <a routerLink="/Customer/PFilter/{{categories[0].id}}">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="card-category" style="background-color:  #10772A; color: #ECF39E;">
+            <i class="fa-solid fa-dumbbell"></i>
+            <p>{{categories[1].name}}</p>
+            <a routerLink="/Customer/PFilter/{{categories[1].id}}" style="color: #ECF39E;">Read more <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="two">
+
+        <div class="columns">
+          <div class="card-category" style="background-color: #ECF39E; color: #10772A;">
+            <i class="fa-solid fa-volleyball"></i>
+            <p>Vollyball</p>
+            <a routerLink="/Customer/PFilter">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="card-category" style="background-color:  #10772A; color: #ECF39E;">
+            <i class="fa-solid fa-basketball"></i>
+            <p>basketball</p>
+            <a routerLink="/Customer/PFilter" style="color: #ECF39E;">Read more <i
+                class="fa-solid fa-arrow-right"></i></a>
+
+          </div>
+        </div>
+        <div class="columns">
+          <div class="card-category" style="background-color: #ECF39E; color: #10772A;">
+            <i class="fa-solid fa-dumbbell"></i>
+            <p>Cricket</p>
+            <a routerLink="/Customer/PFilter">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="three">
+        <div class="columns">
+          <div class="card-category" style="background-color: #ECF39E; color: #10772A;">
+            <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+            <p>Tennis</p>
+            <a routerLink="/Customer/PFilter">Read more <i class="fa-solid fa-arrow-right"></i></a>
+
+          </div>
+        </div>
+        <div class="columns">
+          <div class="card-category" style="background-color:  #10772A; color: #ECF39E;">
+            <i class="fa-solid fa-person-swimming"></i>
+            <p>Swimming </p>
+            <a routerLink="/Customer/PFilter" style="color: #ECF39E;">Read more <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="card-category" style="background-color: #ECF39E; color: #10772A;">
+            <i class="fa-solid fa-dumbbell"></i>
+            <p>GYM</p>
+            <a routerLink="/Customer/PFilter">Read more <i class="fa-solid fa-arrow-right"></i></a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <div id="carouselExampleIndicators" class="carousel slide">
+
+      <div class="carousel-inner">
+        <div class="slider">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="carousel-item active  data-bs-interval=2000">
+            <div class="row justify-content-between  ">
+              <div class="col-lg-4  col-md-4 col-sm-4">
+                <div class="category-space">
+                  <img style="width: 100%;" src="https://localhost:59528/Images/category/{{categories[0].pic}}" alt>
+                  <div class="categ-def">
+                    <h3>{{categories[0].name}}"</h3>
+                    <a routerLink="/Customer/PFilter/{{categories[0].id}}/0/">
+                      <p>READ MORE</p><i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4  col-md-4 col-sm-4">
+                <div class="category-space">
+                  <img style="width: 100%;" src="https://localhost:59528/Images/category/{{categories[1].pic}}" alt>
+                  <div class="categ-def">
+                    <h3>{{categories[1].name}}</h3>
+                    <a routerLink="/Customer/PFilter/{{categories[1].id}}/0/">
+                      <p>READ MORE</p><i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4  col-md-4 col-sm-4">
+                <div class="category-space">
+                  <img style="width: 100%;" src="https://localhost:59528/Images/category/{{categories[2].pic}}" alt>
+                  <div class="categ-def">
+                    <h3>{{categories[2].name}}</h3>
+                    <a routerLink="/Customer/PFilter/{{categories[2].id}}/0/">
+                      <p>READ MORE</p><i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item  data-bs-interval=2000">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="category-space">
+                  <img style="width: 100%;" src="https://localhost:59528/Images/category/{{categories[3].pic}}" alt>
+                  <div class="categ-def">
+                    <h3>{{categories[3].name}}</h3>
+                    <a routerLink="/Customer/PFilter/{{categories[3].id}}/0/">
+                      <p>READ
+                        MORE</p><i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="category-space">
+                  <img style="width: 100%;" src="https://localhost:59528/Images/category/{{categories[4].pic}}" alt>
+                  <div class="categ-def">
+                    <h3>{{categories[4].name}}</h3>
+                    <a routerLink="/Customer/PFilter/Customer/PFilter/{{categories[4].id}}/0/">
+                      <p>READ
+                        MORE</p><i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4  col-md-4 col-sm-4">
+                <div class="category-space">
+                  <img style="width: 100%;" src="https://localhost:59528/Images/category/{{categories[5].pic}}" alt>
+                  <div class="categ-def">
+                    <h3>{{categories[5].name}}</h3>
+                    <div class="linking">
+                      <a routerLink="/Customer/PFilter/{{categories[5].id}}/0/">
+                        <p>READ
+                          MORE</p><i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<section id="Services" class="Service">
+  <div class="serv-text">
+    <h4>Book Now</h4>
+    <h1>OUR <span> Services</span></h1>
+  </div>
+  <div class="container">
+    <div class="services">
+      <div class="our_service">
+        <i class="fa-solid fa-magnifying-glass" style="color: #10772A ;"></i>
+        <h3>FIND</h3>
+        <p>Finding the perfect place or trainer for you might be difficult; therefore, we aim to make easier this
+          process and save you time in your search. We introduce you to places that are close to you or fit your
+          preferences, and trainers who meet your needs. </p>
+      </div>
+      <div class="our_service">
+        <i class="fa-solid fa-calendar-days" style="color:#10772A ;"></i>
+        <h3>BOOK</h3>
+        <p>Booking a place or a trainer with a schedule that works for you is difficult, so we assist you by finding
+          places that meet your schedule or telling the trainer when you want to train and we will notify you.</p>
+
+      </div>
+      <div class="our_service" #Services>
+        <i class="fa-solid fa-person-running" style="color:#000000 ;"></i>
+        <h3 style="color: #10772A;">PLAY</h3>
+        <p>You're the hero, you've chosen the perfect location or trainer, you've booked everything with comfort, and
+          now it's time to play. The stage is prepared for your ideal match, where aspirations can be realized.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--   TESTIMONIALS SECTION -->
+
+<section class="testimonials" id="testimonials">
+  <div class="img-container">
+    <div class="container">
+      <div class="customer">
+        <div id="only" class="comment" >
+          <i class="fa-solid fa-quote-left"></i>
+          <p>{{Reviews[0].placeName}}</p>
+          <p>
+            {{Reviews[0].rateMsg}}
+          </p>
+          <img src="https://localhost:59528/Images/{{Reviews[0].userImg}}" width="100%">
+          <p class="name">{{Reviews[0].userName}}</p>
+        </div>
+        <div id="vanish2" class="comment">
+          <i class="fa-solid fa-quote-left"></i>
+          <p>{{Reviews[1].placeName}}</p>
+          <p>{{Reviews[1].rateMsg}}</p>
+          <img src="https://localhost:59528/Images/{{Reviews[1].userImg}}" width="100%">
+          <p class="name">{{Reviews[1].userName}}</p>
+        </div>
+        <div id="vanish" class="comment">
+          <i class="fa-solid fa-quote-left"></i>
+          <p>{{Reviews[2].placeName}}</p>
+          <p>{{Reviews[2].rateMsg}}</p>
+          <img src="https://localhost:59528/Images/{{Reviews[2].userImg}}" width="100%">
+          <p class="name">{{Reviews[2].userName}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="Counter">
+  <div class="container">
+    <div class="counter_break">
+      <div class="first-sec">
+        <div class="cubes-break">
+          <div class="cube" style="background-color: #10772A; color: white;">
+            <i class="fa-solid fa-futbol" style="color: #f9f9fa;"></i>
+            <p>{{categories[0].name}} Pitches</p>
+            <p class="cube-des">{{CategoryCounter[0]}}</p>
+          </div>
+          <div class="cube" style="background-color: #ECF39E; color:  #10772A;">
+            <i class="fa-solid fa-person-swimming" style="color: #10772A;"></i>
+            <p>{{categories[1].name}} Pool</p>
+            <p class="cube-des">{{CategoryCounter[1]}}</p>
+
+          </div>
+        </div>
+        <div class="background-count">
+          <div class="titles">
+            <hr style="width: 60px; height: 2px; position: relative; bottom: 7px;">
+            <p>Our work</p>
+          </div>
+          <h2>LET'S TAKE A LOOK AT OUR <span>ACHIVEMENTS</span>,<br>WHICH WE PROUD OF...</h2>
+          <button class="Primary-button" routerLink="/Customer/contactus">Contact Us</button>
+        </div>
+
+      </div>
+      <div class="second-sec">
+        <div class="image-count">
+          <img style="width: 100%;" src="./assets/images/pngimg.com - football_player_PNG96.png" alt="">
+        </div>
+        <div class="cubes-break">
+          <div class="cube" style="background-color: #ECF39E; color:  #10772A;">
+            <i class="fa-solid fa-dumbbell" style="color:#10772A;"></i>
+            <p>{{categories[4].name}}</p>
+            <p class="cube-des">{{CategoryCounter[2]}}</p>
+          </div>
+          <div class="cube " style="background-color: #10772A; color: white;">
+            <i class="fa-solid fa-basketball" style="color:white;"></i>
+            <p>{{categories[2].name}} Court</p>
+            <p class="cube-des">{{CategoryCounter[3]}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blogs Section -->
+<section class="blogs">
+  <div class="serv-text">
+    <h4>Latest News</h4>
+    <h1>SPORTS<span> BLOGS </span></h1>
+  </div>
+  <div class="back-view">
+
+  </div>
+  <div class="container">
+    <div class="blog-break">
+      <div class="cards" id="first" style="background-color: white;" *ngFor="let blog of blogs">
+        <div class="card-img">
+
+        <img
+        [src]="'https://localhost:59528/Images/'+blog.imgUrl"
+      />
+        </div>
+        <div class="card-details">
+          <h3>{{blog.title}}</h3>
+          <p class="card-text">
+            {{(blog.content.length>100)? (blog.content|slice:0:100) + ' .....':(blog.content)}}
+             </p>
+          <a routerLink="/Customer/blogs-details/{{blog.id}}" class="Primary-button">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
